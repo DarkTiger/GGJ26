@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class Cauldron : Machine
 {
-    protected override IngredientState finalState => IngredientState.COOKED;
+    protected override ItemState finalState => ItemState.COOKED;
 }
