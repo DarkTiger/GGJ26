@@ -29,7 +29,6 @@ public class ScreenMouseInteraction : MonoBehaviour
 
             if (hitObj.TryGetComponent(out Ingredient ing))
             {
-                ing.Use();
             }
         }
     }

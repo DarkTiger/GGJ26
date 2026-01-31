@@ -6,7 +6,7 @@ using UnityEngine;
 public struct ProcessedIngredient
 {
     public ItemName itemName;
-    public ItemStatus ingredientState;
+    public IngredientStatus ingredientState;
 }
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "Data/Recipe")]
@@ -77,4 +77,3 @@ public class Recipe : ScriptableObject
         return availableRecipes;
     }
 }
-

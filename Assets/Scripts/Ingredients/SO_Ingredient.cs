@@ -3,7 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Ingredient", menuName = "Data/Ingredient")]
 public class SO_Ingredient : ScriptableObject
 {
-    public ItemStatus startStatus = ItemStatus.BASE;
+    public IngredientStatus startStatus = IngredientStatus.BASE;
+    [ColorUsage(showAlpha:false)]   public Color workedColor = Color.white;
     [Space(10)]
     public Sprite baseSprite;
     public Sprite cookedSprite;

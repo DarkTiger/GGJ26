@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15dd2321ec34ea41a4252cc2dac574b, type: 3}
   m_Name: Piselli
   m_EditorClassIdentifier: Assembly-CSharp::SO_Ingredient
+  startStatus: 0
+  workedColor: {r: 0.22254889, g: 0.5698112, b: 0.2385049, a: 1}
+  baseSprite: {fileID: 0}
+  cookedSprite: {fileID: 0}
+  powderSprite: {fileID: 0}

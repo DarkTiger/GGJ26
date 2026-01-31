@@ -1,21 +1,18 @@
 using UnityEngine;
 
-public class Ingredient : Item
+public class Ingredient : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
-    public Sprite baseSprite, cookedSprite, powderSprite;
+    public SO_Ingredient data;
 
-    ItemStatus currentState = ItemStatus.BASE;
+    SpriteRenderer spriteRenderer;
+    IngredientStatus currentState = IngredientStatus.BASE;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Use()
-    { print("Used: " + this.GetType()); }
-
-    public void ChangeState(ItemStatus state)
+    public void ChangeState(IngredientStatus state)
     {
         currentState = state;
     }

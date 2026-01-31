@@ -8,7 +8,7 @@ public enum ItemName
     ALOE,
 }
 
-public enum ItemStatus
+public enum IngredientStatus
 {
     BASE = 0,
     COOKED = 10,

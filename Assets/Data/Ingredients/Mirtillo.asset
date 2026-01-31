@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15dd2321ec34ea41a4252cc2dac574b, type: 3}
   m_Name: Mirtillo
   m_EditorClassIdentifier: Assembly-CSharp::SO_Ingredient
+  startStatus: 0
+  workedColor: {r: 0.63569, g: 0.34528297, b: 1, a: 1}
+  baseSprite: {fileID: 0}
+  cookedSprite: {fileID: 0}
+  powderSprite: {fileID: 0}

@@ -10,19 +10,15 @@ public enum MachineState
 
 public class Machine : Interactable
 {
-    public float workTime = 4f;
     [Space(10)]
-
+    public float workTime = 4f;
+    public GameObject itemInside = null;
+    [Space(10)]
     [HideInInspector] public float startTime;
 
-    // TEST
-    [SerializeField] GameObject targetObj;
-    [SerializeField] bool start = false;
-
-    protected virtual ItemStatus finalState { get; }
+    public virtual IngredientStatus finalState { get; }
 
     Animator animator;
-    Ingredient ingredient = null;
 
     private void Start()
     {
@@ -34,26 +30,32 @@ public class Machine : Interactable
         }    
     }
 
-    private void Update()
-    {
-        if(start)
-        { 
-            if(targetObj.TryGetComponent(out Ingredient ing))
-            {
-                ingredient = ing;
-                OnInteract(null);
-            }
-            start = false;
-        }
-    }
-
     public override void OnInteract(Player player)
     {
-        print("interacting");
+        if(player.CurrentItem == null)
+            return;
+        
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT") && itemInside == null)
+        {
+            if (player.CurrentItem.GetComponent<Ingredient>() == null)
+                return;
 
-        if(animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT"))
+            itemInside = player.CurrentItem.gameObject;
+            itemInside.transform.SetParent(transform, true);
+            itemInside.gameObject.SetActive(false);
             animator.Play("WORK");
-        else if(animator.GetCurrentAnimatorStateInfo(0).IsName("FINISH"))
+        }
+        else if(animator.GetCurrentAnimatorStateInfo(0).IsName("FINISH") && itemInside != null)
+        {
+            if (player.CurrentItem != null)
+                return;
+
+            itemInside.transform.SetParent(player.transform, true);
+            itemInside.gameObject.SetActive(true);
+            itemInside.GetComponent<Ingredient>().ChangeState(finalState);
+            player.CurrentItem = itemInside.GetComponent<Item>();
+            itemInside = null;
             animator.Play("WAIT");
+        }
     }
 }
