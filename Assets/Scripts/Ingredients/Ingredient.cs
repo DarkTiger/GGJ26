@@ -4,7 +4,7 @@ public class Ingredient : Item
 {
     public SO_Ingredient data;
     SpriteRenderer spriteRenderer;
-    [SerializeField] IngredientStatus status;
+    [SerializeField] public IngredientStatus status;
 
     private void Start()
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MixingTable : Machine
 {
-    [SerializeField] List<SO_Ingredient> ingredients;
+    [SerializeField] List<ProcessedIngredient> ingredients;
     [SerializeField] GameObject maskPrefab;
     [SerializeField] Recipe wrongRecipe;
     public override void OnInteract(Player player)
@@ -16,17 +16,11 @@ public class MixingTable : Machine
             {
                 print("adding ingredient:" + (player.CurrentItem as Ingredient).data);
 
-
-                ingredients.Add((player.CurrentItem as Ingredient).data);
-
+                ProcessedIngredient newProIng;
+                newProIng.ingredient = (player.CurrentItem as Ingredient).data;
+                newProIng.status = (player.CurrentItem as Ingredient).status;
+                ingredients.Add(newProIng);
                 IngestItem(player);
-                
-                player.CurrentItem.OnDeInteract(player);
-                itemInside = player.CurrentItem.gameObject;
-                itemInside.transform.parent = transform;
-                itemInside.transform.localPosition = Vector3.zero;
-                player.CurrentItem = null;
-                player.CurrentInteractable = null;
             }
             else
             {
@@ -36,13 +30,18 @@ public class MixingTable : Machine
         }
         else
         {
+            
             if (player.CurrentItem != null && player.CurrentItem is Ingredient)
-            {
+            {/*
                 print("combining ingredients");
 
-                ingredients.Add((player.CurrentItem as Ingredient).data);
+                ProcessedIngredient newProIng;
+                newProIng.ingredient = (player.CurrentItem as Ingredient).data;
+                newProIng.status = (player.CurrentItem as Ingredient).status;
+                ingredients.Add(newProIng);
+
                 List<Recipe> recipeList = new List<Recipe>();
-                recipeList = Recipe.CheckRecipeAvailability(GameManager.Instance.availableRecipe, ingredients);
+                recipeList = Recipe.CheckMask(ingredients);
                 
                 GameObject itemObj = player.CurrentItem.gameObject;
                 Destroy(itemObj);
@@ -58,14 +57,14 @@ public class MixingTable : Machine
                 {
                     maskObj.GetComponent<Mask>().recipe = wrongRecipe;
                     maskObj.GetComponent<Mask>().UpdateSprite();
-                }
+                }*/
             }
             else
             {
                 print("getting back item");
-                itemInside.GetComponent<Item>().OnInteract(player);
-                player.CurrentItem = itemInside.GetComponent<Item>();
-                player.CurrentInteractable = itemInside.GetComponent<Item>();
+
+                ingredients.Clear();
+                GiveItem(player);
             }
         }
     }

@@ -2,25 +2,41 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public struct ProcessedIngredient
+{
+    public SO_Ingredient ingredient;
+    public IngredientStatus status;
+
+    public static bool operator ==(ProcessedIngredient ing1, ProcessedIngredient ing2)
+    {
+        return ing1.Equals(ing2);
+    }
+    public static bool operator !=(ProcessedIngredient ing1, ProcessedIngredient ing2)
+    {
+        return !ing1.Equals(ing2);
+    }
+}
+
 [CreateAssetMenu(fileName = "Recipe", menuName = "Data/Recipe")]
 public class Recipe : ScriptableObject
 {
     public string recipeName = "Nome visibile";
     public Sprite sprite;
     [ColorUsage(showAlpha:false)]   public Color color = Color.white;
-    public List<SO_Ingredient> ingredients;
+    public List<ProcessedIngredient> ingredients;
     [Space(10)]
     public int value = 10;
 
-    public bool CheckMask(List<SO_Ingredient> mask)
+    public bool CheckMask(List<ProcessedIngredient> ingrList)
     {
-        List<SO_Ingredient> tmpMask = new List<SO_Ingredient>();
-        tmpMask.AddRange(mask);
+        List<ProcessedIngredient> tmpMask = new List<ProcessedIngredient>();
+        tmpMask.AddRange(ingrList);
 
-        if (mask.Count != ingredients.Count)
+        if (ingrList.Count != ingredients.Count)
             return false;
 
-        foreach (SO_Ingredient ing in ingredients)
+        foreach (ProcessedIngredient ing in ingredients)
         {
             if (!tmpMask.Contains(ing))
                 return false;
@@ -38,9 +54,9 @@ public class Recipe : ScriptableObject
         {
             bool available = true;
 
-            foreach(SO_Ingredient ingr in recipe.ingredients)
+            foreach(ProcessedIngredient ingr in recipe.ingredients)
             {
-                if(!availableIngredients.Contains(ingr))
+                if(!availableIngredients.Contains(ingr.ingredient))
                     available = false;
                 break;
             }
@@ -50,5 +66,32 @@ public class Recipe : ScriptableObject
         }
 
         return availableRecipes;
+    }
+
+    public static Recipe GetRecipeFromIngredients(List<ProcessedIngredient> ingrList)
+    {
+        if(GameManager.Instance == null)
+            return null;
+
+        List<ProcessedIngredient> tmpIngrList = new List<ProcessedIngredient>();
+        tmpIngrList.AddRange(ingrList);
+
+        foreach(Recipe recipe in GameManager.Instance.recipeList.recipeList)
+        {
+
+            if(ingrList.Count == recipe.ingredients.Count)
+            {
+                foreach (ProcessedIngredient correctIngr in recipe.ingredients)
+                {
+                    if (tmpIngrList.Contains(correctIngr))
+                    {
+                        tmpIngrList.Remove(correctIngr);
+                    }
+                }
+                if (tmpIngrList.Count == 0)
+                    return recipe;
+            }
+        }
+        return null;
     }
 }

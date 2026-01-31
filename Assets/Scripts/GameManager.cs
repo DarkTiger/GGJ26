@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         if (Instance != null) { Destroy(Instance); } else { Instance = this; }
 
         availableRecipe = new List<Recipe>();
+        SetAvaiableRecipe();
     }
 
     private void Start()

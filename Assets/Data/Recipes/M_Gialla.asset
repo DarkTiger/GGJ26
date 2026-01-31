@@ -16,5 +16,6 @@ MonoBehaviour:
   sprite: {fileID: -2874043251771990487, guid: 5cd7098fab1d7d44785973ec7f1938e6, type: 3}
   color: {r: 1, g: 0.966757, b: 0, a: 1}
   ingredients:
-  - {fileID: 0}
+  - ingredient: {fileID: 11400000, guid: d9cfbd06ab31c054eb2e3f8d04e883e9, type: 2}
+    status: 20
   value: 10
