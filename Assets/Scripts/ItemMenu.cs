@@ -12,19 +12,21 @@ public class ItemMenu : MonoBehaviour
 
     [SerializeField] Sprite baseImage, selectedImage;
 
+    public SeedData SeedData => seedData;
+
 
 
     void Start()
     {
-        textMeshProUGUI.text = seedData.cost.ToString();
-        image.sprite = seedData.icon;
+        textMeshProUGUI.text = seedData.Cost.ToString();
+        image.sprite = seedData.Icon;
 
         textMeshProUGUI.gameObject.transform.up = Vector3.up;
 
         image.transform.up = Vector3.up;
     }
     public void SelectItem()
-    {
+    {       
         //sliceImage.color = UnityEngine.Color.green;
         sliceImage.sprite = selectedImage;
     }

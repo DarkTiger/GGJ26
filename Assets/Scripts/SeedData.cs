@@ -4,7 +4,8 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "SeedData", menuName = "Data/SeedData")]
 public class SeedData : ScriptableObject
 {
-    public GameObject prefab;
-    public Sprite icon;
-    public int cost;
+    public GameObject SeedPrefab;
+    public GameObject PlantPrefab;
+    public Sprite Icon;
+    public int Cost;
 }
