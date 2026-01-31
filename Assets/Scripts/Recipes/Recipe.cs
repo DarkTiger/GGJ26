@@ -7,15 +7,6 @@ public struct ProcessedIngredient
 {
     public SO_Ingredient ingredient;
     public IngredientStatus status;
-
-    public static bool operator ==(ProcessedIngredient ing1, ProcessedIngredient ing2)
-    {
-        return ing1.Equals(ing2);
-    }
-    public static bool operator !=(ProcessedIngredient ing1, ProcessedIngredient ing2)
-    {
-        return !ing1.Equals(ing2);
-    }
 }
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "Data/Recipe")]
@@ -74,12 +65,13 @@ public class Recipe : ScriptableObject
             return null;
 
         List<ProcessedIngredient> tmpIngrList = new List<ProcessedIngredient>();
-        tmpIngrList.AddRange(ingrList);
 
         foreach(Recipe recipe in GameManager.Instance.recipeList.recipeList)
         {
+            tmpIngrList.Clear();
+            tmpIngrList.AddRange(ingrList);
 
-            if(ingrList.Count == recipe.ingredients.Count)
+            if (ingrList.Count == recipe.ingredients.Count)
             {
                 foreach (ProcessedIngredient correctIngr in recipe.ingredients)
                 {
@@ -93,5 +85,35 @@ public class Recipe : ScriptableObject
             }
         }
         return null;
+    }
+
+    public static Recipe GetRecipeFromIngredients(List<ProcessedIngredient> ingrList, out bool partialRecipe)
+    {
+        if (GameManager.Instance == null)
+        {
+            partialRecipe = false; return null;
+        }
+
+        List<ProcessedIngredient> tmpIngrList = new List<ProcessedIngredient>();
+
+        foreach (Recipe recipe in GameManager.Instance.recipeList.recipeList)
+        {
+            tmpIngrList.Clear();
+            tmpIngrList.AddRange(ingrList);
+
+            foreach (ProcessedIngredient correctIngr in recipe.ingredients)
+            {
+                if (tmpIngrList.Contains(correctIngr))
+                {
+                    tmpIngrList.Remove(correctIngr);
+                }
+            }
+            if (tmpIngrList.Count == 0)
+            {
+                partialRecipe = ingrList.Count == recipe.ingredients.Count ? false : true;
+                return recipe;
+            }
+        }
+        partialRecipe = false; return null;
     }
 }

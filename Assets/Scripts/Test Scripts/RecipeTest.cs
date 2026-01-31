@@ -7,7 +7,7 @@ public class RecipeTest : MonoBehaviour
     public RecipeList allRecipes;
     public List<Recipe> availableRecipes;
     public bool check = false;
-
+    public bool partialRecipe = false;
     public List<ProcessedIngredient> ingrList;
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class RecipeTest : MonoBehaviour
         {
             check = false;
             //availableRecipes = Recipe.CheckRecipeAvailability(allRecipes.recipeList, availableItems);
-            print(Recipe.GetRecipeFromIngredients(ingrList));
+            print(Recipe.GetRecipeFromIngredients(ingrList, out partialRecipe));
         }
     }
 }

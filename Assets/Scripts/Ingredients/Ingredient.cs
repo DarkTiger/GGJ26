@@ -24,7 +24,7 @@ public class Ingredient : Item
 
     public override void OnDeInteract(Player player)
     {
-        if(player.CandidateInteractable is Machine || player.CandidateInteractable is MixingTable)
+        if(player.CandidateInteractable is Machine)
         {
             player.CandidateInteractable.OnInteract(player);
         }
