@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]public List<Recipe> availableRecipe;
     [SerializeField] public RecipeList recipeList;
-    List<SO_Ingredient> so_ingredient;
+    [SerializeField] List<SO_Ingredient> so_ingredient;
 
     private void Awake()
     {
@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        so_ingredient = new List<SO_Ingredient>();
+        //so_ingredient = new List<SO_Ingredient>();
+        SetAvaiableRecipe(); //Test
     }
 
     public int GetMoney()
@@ -67,6 +68,15 @@ public class GameManager : MonoBehaviour
     public void AddNewIngredient(SO_Ingredient ingredient)
     {
         so_ingredient.Add(ingredient);
-        availableRecipe = Recipe.CheckRecipeAvailability(recipeList.recipeList,so_ingredient);
+        SetAvaiableRecipe();
+    }
+
+    public void SetAvaiableRecipe()
+    {
+        availableRecipe = Recipe.CheckRecipeAvailability(recipeList.recipeList, so_ingredient);
+    }
+     public List<Recipe> GetAvaiableRecipe()
+    {
+        return availableRecipe;
     }
 }
