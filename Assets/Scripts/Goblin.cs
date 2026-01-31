@@ -7,6 +7,7 @@ public class Goblin : Interactable
     [SerializeField] SpriteRenderer spriteRecipe;
     [SerializeField] BoxCollider2D boxCollider2D;
     [SerializeField] GameObject maskGameobject;
+    [SerializeField] GameObject angryGameObject;
     List<Transform> checkpoint;
     Transform finalCheckpoint;
     List<Transform> exitCheckpoints;
@@ -150,6 +151,7 @@ public class Goblin : Interactable
                 {
                     Exit = true;
                     move = true;
+                    angryGameObject.SetActive(true);   
                     //me ne vado
                 }
             }
