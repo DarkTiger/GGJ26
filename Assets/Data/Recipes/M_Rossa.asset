@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: M_Rossa
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: Coccinella Decomposta
+  texture2D: {fileID: 2800000, guid: 4f084f85764a68949b662407cad31a7b, type: 3}
   color: {r: 1, g: 0.1809608, b: 0, a: 1}
   ingredients:
   - itemName: 2

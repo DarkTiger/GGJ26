@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: M_Viola
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: Fragranza Tuguriosa
+  texture2D: {fileID: 2800000, guid: 457b027bccf2d5f44bb882a8f7c9298f, type: 3}
   color: {r: 0.9638543, g: 0, b: 1, a: 1}
   ingredients:
   - itemName: 2

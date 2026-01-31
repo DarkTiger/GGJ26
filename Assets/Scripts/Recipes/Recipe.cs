@@ -13,6 +13,7 @@ public struct ProcessedIngredient
 public class Recipe : ScriptableObject
 {
     public string recipeName = "Nome visibile";
+    public Texture2D texture2D;
     [ColorUsage(showAlpha:false)]   public Color color = Color.white;
     public List<ProcessedIngredient> ingredients;
     [Space(10)]

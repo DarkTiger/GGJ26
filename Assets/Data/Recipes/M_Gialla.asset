@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: M_Gialla
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: Petalo Putrido
+  texture2D: {fileID: 2800000, guid: 5cd7098fab1d7d44785973ec7f1938e6, type: 3}
   color: {r: 1, g: 0.966757, b: 0, a: 1}
   ingredients:
   - itemName: 1
