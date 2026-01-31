@@ -6,6 +6,7 @@ public class Goblin : Interactable
 {
     [SerializeField] SpriteRenderer spriteRecipe;
     [SerializeField] BoxCollider2D boxCollider2D;
+    [SerializeField] GameObject maskGameobject;
     List<Transform> checkpoint;
     Transform finalCheckpoint;
     List<Transform> exitCheckpoints;
@@ -41,11 +42,16 @@ public class Goblin : Interactable
         base.OnInteract(player);
         if (player.CandidateInteractable == this && player.CurrentItem && player.CurrentItem is Mask)
         {
-            isHappy = true;
-            Destroy(player.CurrentItem.gameObject);
-            spriteRecipe.enabled = false;
-            move = true;
-            Exit = true;
+            if ((player.CurrentItem as Mask).recipe == recipeMask)
+            {
+                maskGameobject.GetComponent<SpriteRenderer>().color = recipeMask.color;
+                maskGameobject.SetActive(true);
+                isHappy = true;
+                Destroy(player.CurrentItem.gameObject);
+                spriteRecipe.enabled = false;
+                move = true;
+                Exit = true;
+            }
         }
     }
 
