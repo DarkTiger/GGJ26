@@ -4,7 +4,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public int money;
+    public int money,happyGoblin,angryGoblin;
+
+    public bool IsGameOver = false;
 
     private void Awake()
     {
@@ -24,5 +26,30 @@ public class GameManager : MonoBehaviour
     public void DecreaseMoney(int value)
     {
         money -= value;
+    }
+
+    public void AddHappyGoblin()
+    {
+        happyGoblin++;
+    }
+
+    public int GetHappy()
+    {
+        return happyGoblin;
+    }
+
+    public void AddAngryGoblin()
+    {
+        angryGoblin++;
+    }
+
+    public int GetAngry()
+    {
+        return angryGoblin;
+    }
+
+    public void GameOver()
+    {
+        IsGameOver = true;
     }
 }

@@ -9,6 +9,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject goblinPrefab;
     public Transform finalCheckpoint;
 
+    [SerializeField] float timerSpawn;
+
+    private float timer;
+
+
     [ContextMenu("Spawn")]
     public void Spawn()
     {
@@ -27,10 +32,21 @@ public class SpawnManager : MonoBehaviour
             {
                 goblinScript.AddExitCheckpoint(item);
             }
+            goblinScript.SetBed(bed);
         }
         else
         {
             Debug.Log("non ci sono letti liberi");
+        }
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer > timerSpawn)
+        {
+            timer = 0;
+            Spawn();
         }
     }
 }

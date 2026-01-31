@@ -30,7 +30,7 @@ public class Bed : Interactable
     }
     public void SetBedFreeState()
     {
-
+        IsFree = true;
     }
 
     public Transform GetCheckpointBed()

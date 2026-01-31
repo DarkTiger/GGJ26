@@ -6,24 +6,34 @@ public class Goblin : MonoBehaviour
 {
     List<Transform> checkpoint;
     Transform finalCheckpoint;
-    List<Transform> exitCheckpoint;
+    List<Transform> exitCheckpoints;
+    Bed bed;
     float speed = 3;
     public bool Exit = false;
     public bool MaskAccepted = false;
+    private bool onBed = false;
+    private bool isHappy = true;
 
     public float WaitMaskTimer = 0;
     float timer = 0;
 
     private int currentWaypointIndex = 0;
+    private int currentWaypointExitIndex = 0;
 
     private void Awake()
     {
         checkpoint = new List<Transform>();
+        exitCheckpoints = new List<Transform>();
     }
 
     public void AddExitCheckpoint(Transform transform)
     {
-        exitCheckpoint.Add(transform);
+        exitCheckpoints.Add(transform);
+    }
+
+    public void SetBed(Bed bedValue)
+    {
+        bed = bedValue;
     }
 
     public void AddEnteringCheckpoint(Transform transform)
@@ -49,7 +59,6 @@ public class Goblin : MonoBehaviour
 
                     if (Vector2.Distance(transform.position, target.position) < 0.1f)
                     {
-
                         currentWaypointIndex++;
                     }
                 }
@@ -57,20 +66,53 @@ public class Goblin : MonoBehaviour
                 {
                     Transform target = finalCheckpoint;
                     transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                    if (Vector2.Distance(transform.position, target.position) < 0.2f)
+                    {
+                        onBed = true;
+                    }
                 }
             }
         }
         else
         {
-            //uscita
-        }
-        if (!MaskAccepted)
-        {
-            timer += Time.deltaTime;
-            if (timer > WaitMaskTimer)
+            if (currentWaypointExitIndex < (exitCheckpoints.Count))
             {
-                Exit = true;
-                //me ne vado
+                Transform target = exitCheckpoints[currentWaypointExitIndex];
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+                if (Vector2.Distance(transform.position, target.position) < 0.1f)
+                {
+                    if (currentWaypointExitIndex == 1)
+                    {
+                        if (isHappy)
+                        {
+                            Money.Instance.AddMoney(10);
+                            GameManager.Instance.AddHappyGoblin();
+                        }
+                        else
+                        {
+                            GameManager.Instance.AddAngryGoblin();
+                        }
+                    }
+                    currentWaypointExitIndex++;
+                }
+            }
+            else
+            {
+                bed.SetBedFreeState();
+                Destroy(gameObject);
+            }
+        }
+        if (onBed)
+        {
+            if (!MaskAccepted)
+            {
+                timer += Time.deltaTime;
+                if (timer > WaitMaskTimer)
+                {
+                    Exit = true;
+                    //me ne vado
+                }
             }
         }
     }
