@@ -21,10 +21,8 @@ public class Player : MonoBehaviour
         MoveAction = playerInput.actions["Move"];
         InteractAction = playerInput.actions["Interact"];
 
-        if (playerInput.playerIndex == 1)
-        {
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
-        }
+        transform.GetChild(0).gameObject.SetActive(playerInput.playerIndex == 0);
+        transform.GetChild(1).gameObject.SetActive(playerInput.playerIndex == 1);
 
         FindFirstObjectByType<PlayerInputManager>().GetComponentInChildren<Canvas>().enabled = false;
     }

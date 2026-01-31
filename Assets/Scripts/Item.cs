@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : Interactable
 {
     public Player GrabbedBy { get; private set; }
 
