@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
                 CurrentInteractable.OnDeInteract(this);
                 CurrentInteractable = null;
                 CandidateInteractable = null;
-                CurrentItem = null;
+                //CurrentItem = null;
             }
             else if (CandidateInteractable)
             {

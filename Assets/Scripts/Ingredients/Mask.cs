@@ -14,4 +14,13 @@ public class Mask : Item
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = recipe.sprite;
     }
+
+    public override void OnDeInteract(Player player)
+    {
+        if (player.CandidateInteractable is Goblin)
+        {
+            return;
+        }
+        base.OnDeInteract(player);
+    }
 }

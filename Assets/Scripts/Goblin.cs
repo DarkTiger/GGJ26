@@ -39,11 +39,13 @@ public class Goblin : Interactable
     public override void OnInteract(Player player)
     {
         base.OnInteract(player);
-        if (player.CurrentItem as Mask == recipeMask)
+        if (player.CandidateInteractable == this && player.CurrentItem && player.CurrentItem is Mask)
         {
             isHappy = true;
-            Destroy(player.CurrentItem);
+            Destroy(player.CurrentItem.gameObject);
             spriteRecipe.enabled = false;
+            move = true;
+            Exit = true;
         }
     }
 
