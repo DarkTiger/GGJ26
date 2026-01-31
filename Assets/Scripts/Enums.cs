@@ -1,12 +1,11 @@
 using UnityEngine;
 public enum ItemName
 {
-    MUSHROOM,
-    FLOWER,
-    CAN,
-    MASK_RED,
-    MASK_BLUE,
-    MASK_GREEN,
+    PISELLO,
+    TARASSACO,
+    MELA,
+    MIRTILLO,
+    ALOE,
 }
 
 public enum ItemStatus

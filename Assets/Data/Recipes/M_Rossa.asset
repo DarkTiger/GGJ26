@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 291b682c0c46e764ab980a4f36d6e7c7, type: 3}
-  m_Name: BlueMask
+  m_Name: M_Rossa
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  recipeName: Coccinella Decomposta
+  color: {r: 1, g: 0.1809608, b: 0, a: 1}
   ingredients:
-  - itemName: 1
+  - itemName: 2
     ingredientState: 0
+  - itemName: 1
+    ingredientState: 20
+  value: 10

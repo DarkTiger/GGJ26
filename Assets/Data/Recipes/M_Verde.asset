@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 291b682c0c46e764ab980a4f36d6e7c7, type: 3}
-  m_Name: RedMask
+  m_Name: M_Verde
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  recipeName: Acquitrino Odoroso
+  color: {r: 0, g: 1, b: 0.12903786, a: 1}
   ingredients:
-  - itemName: 0
+  - itemName: 1
     ingredientState: 0
+  value: 10

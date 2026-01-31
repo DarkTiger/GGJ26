@@ -12,6 +12,8 @@ public struct ProcessedIngredient
 [CreateAssetMenu(fileName = "Recipe", menuName = "Data/Recipe")]
 public class Recipe : ScriptableObject
 {
+    public string recipeName = "Nome visibile";
+    [ColorUsage(showAlpha:false)]   public Color color = Color.white;
     public List<ProcessedIngredient> ingredients;
     [Space(10)]
     public int value = 10;
@@ -33,6 +35,7 @@ public class Recipe : ScriptableObject
         }
         return true;
     }
+
     public bool CheckMask(List<ProcessedIngredient> mask)
     {
         List<ProcessedIngredient> tmpMask = new List<ProcessedIngredient>();
