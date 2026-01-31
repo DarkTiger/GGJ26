@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     public InputAction MoveAction { get; private set; }
     public InputAction InteractAction { get; private set; }
-    public Interactable CurrentInteractable { get; private set; }
+    public Interactable CurrentInteractable { get; set; }
     public Item CurrentItem { get; set; }
 
     PlayerInput playerInput;
@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
                 CurrentInteractable.OnDeInteract(this);
                 CurrentInteractable = null;
                 CandidateInteractable = null;
+                CurrentItem = null;
             }
             else if (CandidateInteractable)
             {

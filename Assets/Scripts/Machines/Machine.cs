@@ -67,7 +67,7 @@ public class Machine : Interactable
         itemInside.gameObject.SetActive(true);
         itemInside.gameObject.GetComponent<Ingredient>().ChangeState(finalState);
 
-        Item it = itemInside.GetComponent<Item>();
+        Item it = itemInside.gameObject.GetComponent<Ingredient>();
 
         player.CurrentItem = it;
         player.CurrentItem.OnInteract(player);

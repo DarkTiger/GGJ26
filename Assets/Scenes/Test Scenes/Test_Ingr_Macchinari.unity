@@ -2201,7 +2201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb67de10dcf0a4e40b04e5819a637be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RecipeTest
-  availableItems: 
+  availableItems: []
   allRecipes: {fileID: 11400000, guid: 81c571f318b31274883a812d5aee4baa, type: 2}
   availableRecipes: []
   check: 0
@@ -3862,7 +3862,6 @@ GameObject:
   - component: {fileID: 2074608021}
   - component: {fileID: 2074608020}
   - component: {fileID: 2074608022}
-  - component: {fileID: 2074608024}
   - component: {fileID: 2074608023}
   m_Layer: 0
   m_Name: pea
@@ -4004,18 +4003,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   data: {fileID: 11400000, guid: 640180b3c840dba4ab69e1c1f352eb68, type: 2}
---- !u!114 &2074608024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074608017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35d9bbba7a918c04c854928f530f958d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
