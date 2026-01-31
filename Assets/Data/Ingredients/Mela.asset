@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_Ingredient
   startStatus: 0
   workedColor: {r: 0.5984656, g: 1, b: 0.4509434, a: 1}
-  baseSprite: {fileID: 0}
-  cookedSprite: {fileID: 0}
-  powderSprite: {fileID: 0}
+  baseSprite: {fileID: 3498143683320141249, guid: 34fe4ace5cda62843a14c2dfbb5051f4, type: 3}
+  cookedSprite: {fileID: -8877849883241513997, guid: 3a9547df78488ba48ad635837b380ae1, type: 3}
+  powderSprite: {fileID: 3856777956886470832, guid: 1e49a6eb57db45549ac3f0516e322e7f, type: 3}
