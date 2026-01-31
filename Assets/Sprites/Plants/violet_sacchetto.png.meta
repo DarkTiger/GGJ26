@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9539be627bbee7c4c8d301c984b914b9
+guid: 271185ca053d1d943996e33fe0ffcdac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8588167619344142178
-    second: Blueberry-2_0
+      213: 2285118429850498459
+    second: violet_sacchetto_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blueberry-2_0
+      name: violet_sacchetto_0
       rect:
         serializedVersion: 2
-        x: 82
-        y: 43
-        width: 358
-        height: 378
+        x: 36
+        y: 27
+        width: 448
+        height: 414
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26f058e92fc4f2770800000000000000
-      internalID: 8588167619344142178
+      spriteID: b95ffe8da1f56bf10800000000000000
+      internalID: 2285118429850498459
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Blueberry-2_0: 8588167619344142178
+      violet_sacchetto_0: 2285118429850498459
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

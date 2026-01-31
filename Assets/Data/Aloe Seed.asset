@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f4da07f38b5304caebc5f5327d2ba3, type: 3}
+  m_Name: Aloe Seed
+  m_EditorClassIdentifier: Assembly-CSharp::SeedData
+  SeedPrefab: {fileID: 562306769964701843, guid: d0be833969692c542be779ba9fa038a7, type: 3}
+  PlantPrefab: {fileID: 5044685335951310877, guid: 44be6a2bedd63f1418878b6161319ead, type: 3}
+  Icon: {fileID: -7833957600926569851, guid: 5798107cf182df44ba5bfa08c267a998, type: 3}
+  Cost: 25

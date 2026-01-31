@@ -42,7 +42,6 @@ public class CampSlot : Interactable
             }
             else if (player.CurrentItem is Seed)
             {
-                Debug.Log("On Interact");
                 CurrentSeed = player.CurrentItem as Seed;
                 CurrentSeed.SetWet(IsWet);
                 (player.CurrentItem as Seed).SetSlotPos(transform.position);
