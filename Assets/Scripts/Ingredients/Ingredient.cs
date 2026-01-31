@@ -3,9 +3,7 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour
 {
     public SO_Ingredient data;
-
     SpriteRenderer spriteRenderer;
-    IngredientStatus currentState = IngredientStatus.BASE;
 
     private void Start()
     {
@@ -14,6 +12,6 @@ public class Ingredient : MonoBehaviour
 
     public void ChangeState(IngredientStatus state)
     {
-        currentState = state;
+        data.currentStatus = state;
     }
 }

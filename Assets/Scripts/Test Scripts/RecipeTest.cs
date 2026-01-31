@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RecipeTest : MonoBehaviour
 {
-    public List<ItemName> availableItems;
+    public List<SO_Ingredient> availableItems;
     public RecipeList allRecipes;
     public List<Recipe> availableRecipes;
     public bool check = false;

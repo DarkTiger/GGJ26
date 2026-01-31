@@ -2,50 +2,25 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public struct ProcessedIngredient
-{
-    public ItemName itemName;
-    public IngredientStatus ingredientState;
-}
-
 [CreateAssetMenu(fileName = "Recipe", menuName = "Data/Recipe")]
 public class Recipe : ScriptableObject
 {
     public string recipeName = "Nome visibile";
     public Texture2D texture2D;
     [ColorUsage(showAlpha:false)]   public Color color = Color.white;
-    public List<ProcessedIngredient> ingredients;
+    public List<SO_Ingredient> ingredients;
     [Space(10)]
     public int value = 10;
 
-    static bool Compare(List<ProcessedIngredient> mask, List<ProcessedIngredient> recipe)
+    public bool CheckMask(List<SO_Ingredient> mask)
     {
-        List<ProcessedIngredient> tmpMask = new List<ProcessedIngredient>();
-        tmpMask.AddRange(mask);
-
-        if(mask.Count != recipe.Count)
-            return false;
-
-        foreach (ProcessedIngredient ing in recipe)
-        {
-            if (!tmpMask.Contains(ing))
-                return false;
-            else
-                tmpMask.Remove(ing);
-        }
-        return true;
-    }
-
-    public bool CheckMask(List<ProcessedIngredient> mask)
-    {
-        List<ProcessedIngredient> tmpMask = new List<ProcessedIngredient>();
+        List<SO_Ingredient> tmpMask = new List<SO_Ingredient>();
         tmpMask.AddRange(mask);
 
         if (mask.Count != ingredients.Count)
             return false;
 
-        foreach (ProcessedIngredient ing in ingredients)
+        foreach (SO_Ingredient ing in ingredients)
         {
             if (!tmpMask.Contains(ing))
                 return false;
@@ -55,7 +30,7 @@ public class Recipe : ScriptableObject
         return true;
     }
 
-    public static List<Recipe> CheckRecipeAvailability(List<Recipe> allRecipes, List<ItemName> availableIngredients)
+    public static List<Recipe> CheckRecipeAvailability(List<Recipe> allRecipes, List<SO_Ingredient> availableIngredients)
     {
         List<Recipe> availableRecipes = new List<Recipe>();
 
@@ -63,9 +38,9 @@ public class Recipe : ScriptableObject
         {
             bool available = true;
 
-            foreach(ProcessedIngredient ingr in recipe.ingredients)
+            foreach(SO_Ingredient ingr in recipe.ingredients)
             {
-                if(!availableIngredients.Contains(ingr.itemName))
+                if(!availableIngredients.Contains(ingr))
                     available = false;
                 break;
             }

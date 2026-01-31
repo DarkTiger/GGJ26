@@ -32,30 +32,46 @@ public class Machine : Interactable
 
     public override void OnInteract(Player player)
     {
-        if(player.CurrentItem == null)
-            return;
-        
-        if(animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT") && itemInside == null)
+        print("Interacting with: " + name);
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT") && itemInside == null && player.CandidateInteractable == this)
         {
-            if (player.CurrentItem.GetComponent<Ingredient>() == null)
+            if (player.CurrentItem?.gameObject.GetComponent<Ingredient>() == null)
                 return;
 
-            itemInside = player.CurrentItem.gameObject;
-            itemInside.transform.SetParent(transform, true);
-            itemInside.gameObject.SetActive(false);
-            animator.Play("WORK");
+                print("Putting item in cauldron");
+                StartWorking(player);
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsName("FINISH") && itemInside != null)
         {
             if (player.CurrentItem != null)
                 return;
 
-            itemInside.transform.SetParent(player.transform, true);
-            itemInside.gameObject.SetActive(true);
-            itemInside.GetComponent<Ingredient>().ChangeState(finalState);
-            player.CurrentItem = itemInside.GetComponent<Item>();
-            itemInside = null;
-            animator.Play("WAIT");
+            print("Removing item in cauldron");
+            GiveItem(player);
         }
+    }
+
+    void StartWorking(Player player)
+    {
+        itemInside = player.CurrentItem.gameObject;
+        player.CurrentItem = null;
+        itemInside.transform.SetParent(transform, true);
+        itemInside.gameObject.SetActive(false);
+        animator.Play("WORK");
+    }
+
+    void GiveItem(Player player)
+    {
+        itemInside.transform.SetParent(player.transform, true);
+        itemInside.gameObject.SetActive(true);
+        itemInside.gameObject.GetComponent<Ingredient>().ChangeState(finalState);
+
+        Item it = itemInside.GetComponent<Item>();
+
+        player.CurrentItem = it;
+        player.CurrentItem.OnInteract(player);
+        itemInside = null;
+        animator.Play("WAIT");
     }
 }
