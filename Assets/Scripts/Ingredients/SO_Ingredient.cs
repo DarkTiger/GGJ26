@@ -4,7 +4,6 @@ using UnityEngine;
 public class SO_Ingredient : ScriptableObject
 {
     public IngredientStatus startStatus = IngredientStatus.BASE;
-    [HideInInspector]   public IngredientStatus currentStatus = IngredientStatus.BASE;
     [ColorUsage(showAlpha:false)]   public Color workedColor = Color.white;
     [Space(10)]
     public Sprite baseSprite;

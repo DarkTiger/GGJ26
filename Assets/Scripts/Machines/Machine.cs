@@ -68,6 +68,7 @@ public class Machine : Interactable
         itemInside.gameObject.GetComponent<Ingredient>().ChangeState(finalState);
 
         Item it = itemInside.gameObject.GetComponent<Ingredient>();
+        (it as Ingredient).UpdateSprite();
 
         player.CurrentItem = it;
         player.CurrentInteractable = it;

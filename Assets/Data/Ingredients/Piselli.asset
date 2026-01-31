@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Piselli
   m_EditorClassIdentifier: Assembly-CSharp::SO_Ingredient
   startStatus: 0
+  currentStatus: 10
   workedColor: {r: 0.22254889, g: 0.5698112, b: 0.2385049, a: 1}
-  baseSprite: {fileID: 0}
-  cookedSprite: {fileID: 0}
-  powderSprite: {fileID: 0}
+  baseSprite: {fileID: 5265476701508088285, guid: 12e08670672dc0546b5294b8c0299eed, type: 3}
+  cookedSprite: {fileID: -7704052613724499916, guid: 6128f0b9de94b79428541dfb512656b0, type: 3}
+  powderSprite: {fileID: 21300000, guid: 8736c9dce20f5d648bad51e13b120081, type: 3}

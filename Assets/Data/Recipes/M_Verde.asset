@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: M_Verde
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: Acquitrino Odoroso
-  texture2D: {fileID: 2800000, guid: d2828c43776c92b438ad1b02b167449a, type: 3}
+  sprite: {fileID: 7209981765597108096, guid: d2828c43776c92b438ad1b02b167449a, type: 3}
   color: {r: 0, g: 1, b: 0.12903786, a: 1}
   ingredients:
-  - itemName: 1
-    ingredientState: 0
+  - {fileID: 0}
   value: 10

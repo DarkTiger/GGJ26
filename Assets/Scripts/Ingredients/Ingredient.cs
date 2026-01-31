@@ -4,15 +4,17 @@ public class Ingredient : Item
 {
     public SO_Ingredient data;
     SpriteRenderer spriteRenderer;
+    [SerializeField] IngredientStatus status;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        UpdateSprite();
     }
 
     public void ChangeState(IngredientStatus state)
     {
-        data.currentStatus = state;
+        status = state;
     }
 
     public override void OnInteract(Player player)
@@ -22,7 +24,7 @@ public class Ingredient : Item
 
     public override void OnDeInteract(Player player)
     {
-        if(player.CandidateInteractable is Machine)
+        if(player.CandidateInteractable is Machine || player.CandidateInteractable is MixingTable)
         {
             player.CandidateInteractable.OnInteract(player);
         }
@@ -35,5 +37,21 @@ public class Ingredient : Item
     public override void Use(Player player)
     {
         base.Use(player);
+    }
+
+    public void UpdateSprite()
+    {
+        switch(status)
+        {
+            case IngredientStatus.BASE:
+                spriteRenderer.sprite = data.baseSprite;
+                break;
+            case IngredientStatus.COOKED:
+                spriteRenderer.sprite = data.cookedSprite;
+                break;
+            case IngredientStatus.POWDER:
+                spriteRenderer.sprite = data.powderSprite;
+                break;
+        }
     }
 }

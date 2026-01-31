@@ -6,7 +6,7 @@ using UnityEngine;
 public class Recipe : ScriptableObject
 {
     public string recipeName = "Nome visibile";
-    public Texture2D texture2D;
+    public Sprite sprite;
     [ColorUsage(showAlpha:false)]   public Color color = Color.white;
     public List<SO_Ingredient> ingredients;
     [Space(10)]

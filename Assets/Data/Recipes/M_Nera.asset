@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: M_Nera
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: Schifopuzza
-  texture2D: {fileID: 2800000, guid: 457b027bccf2d5f44bb882a8f7c9298f, type: 3}
+  sprite: {fileID: 6263521877169465104, guid: 4f084f85764a68949b662407cad31a7b, type: 3}
   color: {r: 0.17735851, g: 0.10509188, b: 0.07997865, a: 1}
   ingredients: []
   value: 0

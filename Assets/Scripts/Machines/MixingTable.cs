@@ -3,58 +3,66 @@ using UnityEngine;
 
 public class MixingTable : Machine
 {
-    [SerializeField]    List<SO_Ingredient> ingredients;
-
+    [SerializeField] List<SO_Ingredient> ingredients;
+    [SerializeField] GameObject maskPrefab;
+    [SerializeField] Recipe wrongRecipe;
     public override void OnInteract(Player player)
     {
-        print("Interacting with: " + name);
+        print("Interacting with mixing table: " + name);
 
         if(player.CurrentItem is Ingredient)
-
-        if(ingredients == null)
         {
-            if(player.CurrentItem != null)
+            if (ingredients.Count == 0)
             {
-                ingredients.Add((player.CurrentItem as Ingredient).data);
-                player.CurrentItem = null;
-                player.CurrentInteractable = null;
+                if (player.CurrentItem != null)
+                {
+                    print("adding ingredient:" + (player.CurrentItem as Ingredient).data);
+
+                    ingredients.Add((player.CurrentItem as Ingredient).data);
+                    itemInside = player.CurrentItem.gameObject;
+                    itemInside.transform.parent = transform;
+                    player.CurrentItem = null;
+                    player.CurrentInteractable = null;
+                }
+                else
+                {
+                    print("not carrying ingredient!");
+                    // avvisare player?
+                }
             }
             else
             {
-                // avvisare player?
-            }
-        }
-        else
-        {
-            if (player.CurrentItem != null)
-            {
-                ingredients.Add((player.CurrentItem as Ingredient).data);
+                if (player.CurrentItem != null)
+                {
+                    print("combining ingredients");
+
+                    ingredients.Add((player.CurrentItem as Ingredient).data);
                     List<Recipe> recipeList = Recipe.CheckRecipeAvailability(GameManager.Instance.availableRecipe, ingredients);
-                    
-                    if(recipeList.Count == 1)
+                
+                    GameObject itemObj = player.CurrentItem.gameObject;
+                    Destroy(itemObj);
+                    GameObject maskObj = Instantiate(maskPrefab);
+                    maskObj.transform.parent = transform;
+
+                    if (recipeList.Count == 1)
                     {
-
+                        maskObj.GetComponent<Mask>().recipe = recipeList[0];
+                        maskObj.GetComponent<Mask>().UpdateSprite();
                     }
+                    else
+                    {
+                        maskObj.GetComponent<Mask>().recipe = wrongRecipe;
+                        maskObj.GetComponent<Mask>().UpdateSprite();
+                    }
+                }
+                else
+                {
+                    print("getting back item");
+                    itemInside.GetComponent<Interactable>().OnInteract(player);
+                    player.CurrentItem = itemInside.GetComponent<Item>();
+                    player.CurrentInteractable = itemInside.GetComponent<Item>();
+                }
             }
-            else
-            {
-
-            }
-        }
-
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT") && itemInside == null && player.CandidateInteractable == this)
-        {
-            if (player.CurrentItem?.gameObject.GetComponent<Ingredient>() == null)
-                return;
-
-            print("Putting item in mixing");
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("FINISH") && itemInside != null)
-        {
-            if (player.CurrentItem != null)
-                return;
-
-            print("Removing item in cauldron");
         }
     }
 }
