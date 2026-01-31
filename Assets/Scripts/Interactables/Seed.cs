@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class Seed : Item
 {
+    public Plant Plant { get; private set; } 
+
     SeedData seedData;
     Vector3 slotPos;
+    bool isWet;
 
     public override void Use(Player player)
     {
-        Plant();
+        FarmPlant();
         base.Use(player);
     }
 
@@ -21,8 +24,23 @@ public class Seed : Item
         this.slotPos = slotPos;
     }
 
-    void Plant()
+    public void SetWet(bool isWet)
     {
-        Instantiate(seedData.PlantPrefab, slotPos, Quaternion.identity);
+        this.isWet = isWet;
+    }
+
+    void FarmPlant()
+    {
+        Plant = Instantiate(seedData.PlantPrefab, slotPos, Quaternion.identity).GetComponent<Plant>();
+        Plant.IsWet = isWet;
+        Destroy(gameObject);
+    }
+
+    public override void OnDeInteract(Player player)
+    {
+        if (player.CandidateInteractable is CampSlot) return;
+
+        player.CurrentItem = null;
+        base.OnDeInteract(player);
     }
 }
