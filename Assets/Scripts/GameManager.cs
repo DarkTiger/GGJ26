@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //so_ingredient = new List<SO_Ingredient>();
-        SetAvaiableRecipe(); //Test
+        //SetAvaiableRecipe(); //Test
+        TopBarUI.Instance.UpdateTopBar();
     }
 
     public int GetMoney()
