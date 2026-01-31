@@ -1,26 +1,19 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PieMenu : MonoBehaviour
 {
     [SerializeField] ItemMenu item1, item2, item3, item4, item5, item6;
-
     [SerializeField] float threshold;
-
-    Gamepad gamepad = Gamepad.current;
+    bool interacted = false;
 
     Player player;
 
-
     void Update()
     {
-        Vector2 stickL = player.MoveAction.ReadValue<Vector2>();
-        //Vector2 stickL = gamepad.leftStick.ReadValue();
+        Vector2 stickR = player.LookAction.ReadValue<Vector2>();
+        float angle = Mathf.Atan2(-stickR.y, -stickR.x) * Mathf.Rad2Deg;
 
-        float angle = Mathf.Atan2(-stickL.y, -stickL.x) * Mathf.Rad2Deg;
-
-        if (stickL.x > threshold || stickL.y > threshold || stickL.x < -threshold || stickL.y < -threshold)
+        if (stickR.x > threshold || stickR.y > threshold || stickR.x < -threshold || stickR.y < -threshold)
         {
             //item 1
             if (angle > 60 && angle < 120)
@@ -31,6 +24,7 @@ public class PieMenu : MonoBehaviour
                 item4.DeselectItem();
                 item5.DeselectItem();
                 item6.DeselectItem();
+                GiveItem(item1);
             }
             //item 2
             if (angle > 0 && angle < 60)
@@ -41,6 +35,7 @@ public class PieMenu : MonoBehaviour
                 item4.DeselectItem();
                 item5.DeselectItem();
                 item6.DeselectItem();
+                GiveItem(item2);
             }
             //item 3
             if (angle > -60 && angle < 0)
@@ -51,6 +46,7 @@ public class PieMenu : MonoBehaviour
                 item4.DeselectItem();
                 item5.DeselectItem();
                 item6.DeselectItem();
+                GiveItem(item3);
             }
             //item 4
             if (angle > -120 && angle < -60)
@@ -61,6 +57,7 @@ public class PieMenu : MonoBehaviour
                 item4.SelectItem();
                 item5.DeselectItem();
                 item6.DeselectItem();
+                GiveItem(item4);
             }
             //item 5
             if (angle > -180 && angle < -120)
@@ -71,6 +68,7 @@ public class PieMenu : MonoBehaviour
                 item4.DeselectItem();
                 item5.SelectItem();
                 item6.DeselectItem();
+                GiveItem(item5);
             }
             //item 6
             if (angle > 120 && angle < 180)
@@ -81,6 +79,7 @@ public class PieMenu : MonoBehaviour
                 item4.DeselectItem();
                 item5.DeselectItem();
                 item6.SelectItem();
+                GiveItem(item6);
             }
         }
         else
@@ -102,5 +101,20 @@ public class PieMenu : MonoBehaviour
     public void RemovePlayer()
     {
         player = null;
+    }
+
+    public void GiveItem(ItemMenu itemMenu)
+    {
+        if (player.Interact2Action.WasPressedThisFrame())
+        {
+            Seed seed = Instantiate(itemMenu.SeedData.SeedPrefab).GetComponent<Seed>();
+            seed.SetSeedData(itemMenu.SeedData);
+            player.CurrentInteractable = seed;
+            player.CurrentItem = seed;
+            seed.OnInteract(player);
+            seed.transform.localPosition = new Vector3(-0.5f, 0f, 0f);
+            interacted = false;
+            gameObject.SetActive(false);
+        }
     }
 }

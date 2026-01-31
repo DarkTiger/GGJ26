@@ -4,34 +4,16 @@ public class CampSlot : Interactable
 {
     [SerializeField] Sprite drySprite;
     [SerializeField] Sprite wetSprite;
-    [SerializeField] float timeToPlantGrow;
-
+    
     public bool IsWet { get; private set; }
     public SeedData CurrentSeed { get; private set; }
-    public int GrowLevel { get; private set; } = 0;
-
-    const float GROW_TIME = 0f;
-    
+        
     SpriteRenderer spriteRenderer;
 
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void Update()
-    {
-        if (!CurrentSeed || !IsWet || CurrentSeed && GrowLevel >= 3) return;
-
-        for (int i = 0; i < 3; i++)
-        {
-            if (timeToPlantGrow * (GrowLevel + 1) <= GROW_TIME)
-            {
-                // GROW PLANT LOGIC
-                GrowLevel++;
-            }
-        }
     }
 
     void SetWet(bool isWet)
@@ -42,12 +24,20 @@ public class CampSlot : Interactable
 
     public override void OnInteract(Player player)
     {
-        if (player.CandidateInteractable == this && player.CurrentItem && player.CurrentItem is Bucket)
+        if (player.CandidateInteractable == this && player.CurrentItem)
         {
-            if ((player.CurrentItem as Bucket).IsFull)
+            if (player.CurrentItem is Bucket)
             {
-                player.CurrentItem.Use(player);
-                SetWet(true);
+                if ((player.CurrentItem as Bucket).IsFull)
+                {
+                    player.CurrentItem.Use(player);
+                    SetWet(true);
+                }
+            }
+            else if (player.CurrentItem is Seed)
+            {
+                player.CurrentItem.SetSlotPos(transform.position);
+                player.CurrentItem.Use(player);               
             }
         }
     }

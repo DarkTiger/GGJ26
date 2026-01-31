@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,12 +8,16 @@ public class Player : MonoBehaviour
 
     public InputAction MoveAction { get; private set; }
     public InputAction InteractAction { get; private set; }
+    public InputAction Interact2Action { get; private set; }
+    public InputAction LookAction { get; private set; }
     public Interactable CurrentInteractable { get; set; }
+    public Interactable CandidateInteractable { get; set; }
     public Item CurrentItem { get; set; }
+    public bool Interating { get; private set; }
 
     PlayerInput playerInput;
     Rigidbody2D rb;
-    public Interactable CandidateInteractable;
+    
 
 
     private void Awake()
@@ -21,6 +26,8 @@ public class Player : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         MoveAction = playerInput.actions["Move"];
         InteractAction = playerInput.actions["Interact"];
+        Interact2Action = playerInput.actions["Interact2"];
+        LookAction = playerInput.actions["Look"];
 
         transform.GetChild(0).gameObject.SetActive(playerInput.playerIndex == 0);
         transform.GetChild(1).gameObject.SetActive(playerInput.playerIndex == 1);
