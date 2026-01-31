@@ -40,7 +40,7 @@ public class Machine : Interactable
                 return;
 
                 print("Putting item in cauldron");
-                StartWorking(player);
+                IngestItem(player);
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsName("FINISH") && itemInside != null)
         {
@@ -52,16 +52,17 @@ public class Machine : Interactable
         }
     }
 
-    void StartWorking(Player player)
+    protected void IngestItem(Player player)
     {
         itemInside = player.CurrentItem.gameObject;
+        player.CurrentItem.OnDeInteract(player);
         player.CurrentItem = null;
         itemInside.transform.SetParent(transform, true);
         itemInside.gameObject.SetActive(false);
         animator.Play("WORK");
     }
 
-    void GiveItem(Player player)
+    protected void GiveItem(Player player)
     {
         itemInside.transform.SetParent(player.transform, true);
         itemInside.gameObject.SetActive(true);
