@@ -6,8 +6,8 @@ public class CampSlot : Interactable
     [SerializeField] Sprite wetSprite;
     
     public bool IsWet { get; private set; }
-    public Seed CurrentSeed { get; private set; }
-        
+    public Seed CurrentSeed { get; private set; }    
+
     SpriteRenderer spriteRenderer;
 
 
@@ -42,6 +42,8 @@ public class CampSlot : Interactable
             }
             else if (player.CurrentItem is Seed)
             {
+                if (CurrentSeed) return;
+
                 CurrentSeed = player.CurrentItem as Seed;
                 CurrentSeed.SetWet(IsWet);
                 (player.CurrentItem as Seed).SetSlotPos(transform.position);
