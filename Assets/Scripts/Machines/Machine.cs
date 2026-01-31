@@ -47,18 +47,19 @@ public class Machine : Interactable
             if (player.CurrentItem != null)
                 return;
 
-            print("Removing item in cauldron");
+            print("Removing item from cauldron");
             GiveItem(player);
         }
     }
 
-    protected void IngestItem(Player player)
+    protected void IngestItem(Player player, bool hide=true)
     {
         itemInside = player.CurrentItem.gameObject;
-        player.CurrentItem.OnDeInteract(player);
+        player.CurrentItem.Release();
         player.CurrentItem = null;
         itemInside.transform.SetParent(transform, true);
-        itemInside.gameObject.SetActive(false);
+        if(hide)
+            itemInside.gameObject.SetActive(false);
         animator.Play("WORK");
     }
 
@@ -66,14 +67,14 @@ public class Machine : Interactable
     {
         itemInside.transform.SetParent(player.transform, true);
         itemInside.gameObject.SetActive(true);
-        itemInside.gameObject.GetComponent<Ingredient>().ChangeState(finalState);
+        itemInside.gameObject.GetComponent<Ingredient>()?.ChangeState(finalState);
 
-        Item it = itemInside.gameObject.GetComponent<Ingredient>();
-        (it as Ingredient).UpdateSprite();
+        Item it = itemInside.gameObject.GetComponent<Item>();
+        (it as Ingredient)?.UpdateSprite();
 
+        it.Grab(player);
         player.CurrentItem = it;
         player.CurrentInteractable = it;
-        player.CurrentItem.OnInteract(player);
         itemInside = null;
         animator.Play("WAIT");
     }

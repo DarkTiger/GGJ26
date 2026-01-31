@@ -6,9 +6,11 @@ public class MixingTable : Machine
     [SerializeField] List<ProcessedIngredient> ingredients;
     [SerializeField] GameObject maskPrefab;
     [SerializeField] Recipe wrongRecipe;
+
     public override void OnInteract(Player player)
     {
-        print("Interacting with mixing table: " + name);
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT"))
+            return;
 
         if (ingredients.Count == 0)
         {
@@ -20,7 +22,7 @@ public class MixingTable : Machine
                 newProIng.ingredient = (player.CurrentItem as Ingredient).data;
                 newProIng.status = (player.CurrentItem as Ingredient).status;
                 ingredients.Add(newProIng);
-                IngestItem(player);
+                IngestItem(player, false);
             }
             else
             {
@@ -30,9 +32,8 @@ public class MixingTable : Machine
         }
         else
         {
-            
             if (player.CurrentItem != null && player.CurrentItem is Ingredient)
-            {/*
+            {
                 print("combining ingredients");
 
                 ProcessedIngredient newProIng;
@@ -40,24 +41,28 @@ public class MixingTable : Machine
                 newProIng.status = (player.CurrentItem as Ingredient).status;
                 ingredients.Add(newProIng);
 
-                List<Recipe> recipeList = new List<Recipe>();
-                recipeList = Recipe.CheckMask(ingredients);
-                
-                GameObject itemObj = player.CurrentItem.gameObject;
-                Destroy(itemObj);
-                GameObject maskObj = Instantiate(maskPrefab);
-                maskObj.transform.parent = transform;
+                Recipe recipe = Recipe.GetRecipeFromIngredients(ingredients, out bool partial);
 
-                if (recipeList.Count == 1)
+                if (!partial)
                 {
-                    maskObj.GetComponent<Mask>().recipe = recipeList[0];
+                    foreach(Transform child in transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                    
+                    Destroy(player.CurrentItem.gameObject);
+                    player.CurrentItem = null;
+                    player.CurrentInteractable = null;
+
+                    GameObject maskObj = Instantiate(maskPrefab);
+                    itemInside = maskObj;
+                    itemInside.GetComponent<Collider2D>().enabled = false;
+
+                    maskObj.transform.parent = transform;
+                    maskObj.transform.position = transform.position;
+                    maskObj.GetComponent<Mask>().recipe = recipe? recipe: wrongRecipe;
                     maskObj.GetComponent<Mask>().UpdateSprite();
                 }
-                else
-                {
-                    maskObj.GetComponent<Mask>().recipe = wrongRecipe;
-                    maskObj.GetComponent<Mask>().UpdateSprite();
-                }*/
             }
             else
             {
