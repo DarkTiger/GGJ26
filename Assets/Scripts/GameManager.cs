@@ -34,16 +34,19 @@ public class GameManager : MonoBehaviour
     public void IncreaseMoney(int value)
     {
         money += value;
+        TopBarUI.Instance.UpdateTopBar();
     }
 
     public void DecreaseMoney(int value)
     {
         money -= value;
+        TopBarUI.Instance.UpdateTopBar();
     }
 
     public void AddHappyGoblin()
     {
         happyGoblin++;
+        TopBarUI.Instance.UpdateTopBar();
     }
 
     public int GetHappy()
@@ -54,6 +57,7 @@ public class GameManager : MonoBehaviour
     public void AddAngryGoblin()
     {
         angryGoblin++;
+        TopBarUI.Instance.UpdateTopBar();
     }
 
     public int GetAngry()

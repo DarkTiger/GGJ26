@@ -1,3 +1,4 @@
+using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class TopBarUI : MonoBehaviour
         if (Instance != null) { Destroy(Instance); } else { Instance = this; }
     }
 
-    private void Update()
+    public void UpdateTopBar()
     {
         textMoney.text = GameManager.Instance.GetMoney().ToString();
         textHappy.text = GameManager.Instance.GetHappy().ToString();
