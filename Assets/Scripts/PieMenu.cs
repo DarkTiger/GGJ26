@@ -10,11 +10,15 @@ public class PieMenu : MonoBehaviour
 
     Gamepad gamepad = Gamepad.current;
 
+    Player player;
+
+
     void Update()
     {
-        Vector2 stickL = gamepad.leftStick.ReadValue();
+        Vector2 stickL = player.MoveAction.ReadValue<Vector2>();
+        //Vector2 stickL = gamepad.leftStick.ReadValue();
 
-        float angle = Mathf.Atan2(stickL.y, stickL.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(-stickL.y, -stickL.x) * Mathf.Rad2Deg;
 
         if (stickL.x > threshold || stickL.y > threshold || stickL.x < -threshold || stickL.y < -threshold)
         {
@@ -88,5 +92,15 @@ public class PieMenu : MonoBehaviour
             item5.DeselectItem();
             item6.DeselectItem();
         }
+    }
+
+    public void SetPlayer(Player interactPlayer)
+    {
+        player = interactPlayer;
+    }
+
+    public void RemovePlayer()
+    {
+        player = null;
     }
 }
