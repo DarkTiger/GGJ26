@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
 
     public InputAction MoveAction { get; private set; }
     public InputAction InteractAction { get; private set; }
-    public Item CurrentItem { get; private set; }
+    public Interactable CurrentInteractable { get; private set; }
 
     PlayerInput playerInput;
     Rigidbody2D rb;
-    Item candidateItem;
+    public Interactable candidateInteractable;
 
 
     private void Awake()
@@ -33,37 +33,43 @@ public class Player : MonoBehaviour
     }
 
     private void Update()
-    {
+    { 
         if (InteractAction.WasPressedThisFrame())
         {
-            if (CurrentItem)
+            if (CurrentInteractable)
             {
-                CurrentItem.Release();
-                CurrentItem = null;
-                candidateItem = null;
+                CurrentInteractable.OnDeInteract(this);
+                CurrentInteractable = null;
+                candidateInteractable = null;
             }
-            else if (candidateItem)
+            else if (candidateInteractable)
             {
-                candidateItem.Grab(this);
-                CurrentItem = candidateItem;
-                candidateItem = null;
+                candidateInteractable.OnInteract(this);
+                CurrentInteractable = candidateInteractable;
+                candidateInteractable = null;
             }
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Item item))
+        if (collision.TryGetComponent(out Interactable interactable))
         {
-            if (!item.GrabbedBy)
+            if (!interactable.InteractedBy)           
             {
-                candidateItem = item;
+                candidateInteractable = interactable;
+                interactable.OnEntering(this);
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        candidateItem = null;
+        if (collision.TryGetComponent(out Interactable interactable))
+        {
+            interactable.OnExit(this);
+            interactable.InteractedBy = null;
+            candidateInteractable = null;
+        }
     }
 }
