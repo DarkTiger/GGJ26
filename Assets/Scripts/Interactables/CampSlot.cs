@@ -36,7 +36,7 @@ public class CampSlot : Interactable
             }
             else if (player.CurrentItem is Seed)
             {
-                player.CurrentItem.SetSlotPos(transform.position);
+                (player.CurrentItem as Seed).SetSlotPos(transform.position);
                 player.CurrentItem.Use(player);               
             }
         }
