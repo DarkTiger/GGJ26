@@ -9,12 +9,19 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver = false;
 
     [SerializeField]public List<Recipe> availableRecipe;
+    [SerializeField] public RecipeList recipeList;
+    List<SO_Ingredient> so_ingredient;
 
     private void Awake()
     {
         if (Instance != null) { Destroy(Instance); } else { Instance = this; }
 
         availableRecipe = new List<Recipe>();
+    }
+
+    private void Start()
+    {
+        so_ingredient = new List<SO_Ingredient>();
     }
 
     public int GetMoney()
@@ -55,5 +62,11 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         IsGameOver = true;
+    }
+
+    public void AddNewIngredient(SO_Ingredient ingredient)
+    {
+        so_ingredient.Add(ingredient);
+        availableRecipe = Recipe.CheckRecipeAvailability(recipeList.recipeList,so_ingredient);
     }
 }
