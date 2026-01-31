@@ -8,9 +8,13 @@ public class GameManager : MonoBehaviour
 
     public bool IsGameOver = false;
 
+    [SerializeField]public List<Recipe> availableRecipe;
+
     private void Awake()
     {
         if (Instance != null) { Destroy(Instance); } else { Instance = this; }
+
+        availableRecipe = new List<Recipe>();
     }
 
     public int GetMoney()

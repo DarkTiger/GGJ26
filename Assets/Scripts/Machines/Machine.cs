@@ -18,7 +18,7 @@ public class Machine : Interactable
 
     public virtual IngredientStatus finalState { get; }
 
-    Animator animator;
+    protected Animator animator;
 
     private void Start()
     {
@@ -70,6 +70,7 @@ public class Machine : Interactable
         Item it = itemInside.gameObject.GetComponent<Ingredient>();
 
         player.CurrentItem = it;
+        player.CurrentInteractable = it;
         player.CurrentItem.OnInteract(player);
         itemInside = null;
         animator.Play("WAIT");
