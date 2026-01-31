@@ -50,3 +50,6 @@ MonoBehaviour:
   IsGameOver: 0
   availableRecipe: []
   recipeList: {fileID: 11400000, guid: 81c571f318b31274883a812d5aee4baa, type: 2}
+  so_ingredient:
+  - {fileID: 11400000, guid: 3db530d228ad10e46b3394306b31b2fe, type: 2}
+  - {fileID: 11400000, guid: 020a564421ab1d74db823ab7c86e432b, type: 2}

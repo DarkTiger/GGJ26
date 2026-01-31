@@ -342,9 +342,9 @@ MonoBehaviour:
   - {fileID: 596661716751095854}
   - {fileID: 5560252027542457633}
   spwan: {fileID: 6779552160241767986}
-  goblinPrefab: {fileID: 6237936560835115751, guid: 790c038688fbf7e48a88e6f5824374e5, type: 3}
+  goblinPrefab: {fileID: 1064457702849607808, guid: e1e5d68d17bbafd449f9fad5a930fa65, type: 3}
   finalCheckpoint: {fileID: 0}
-  timerSpawn: 10
+  timerSpawn: 5
 --- !u!1 &9031162306127950600
 GameObject:
   m_ObjectHideFlags: 0
