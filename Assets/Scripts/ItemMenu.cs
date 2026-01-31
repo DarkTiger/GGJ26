@@ -10,6 +10,8 @@ public class ItemMenu : MonoBehaviour
     [SerializeField] Image image;
     [SerializeField] SeedData seedData;
 
+    [SerializeField] Sprite baseImage, selectedImage;
+
 
 
     void Start()
@@ -23,10 +25,12 @@ public class ItemMenu : MonoBehaviour
     }
     public void SelectItem()
     {
-        sliceImage.color = UnityEngine.Color.green;
+        //sliceImage.color = UnityEngine.Color.green;
+        sliceImage.sprite = selectedImage;
     }
     public void DeselectItem()
     {
-        sliceImage.color = UnityEngine.Color.white;
+        //sliceImage.color = UnityEngine.Color.white;
+        sliceImage.sprite = baseImage;
     }
 }
