@@ -8,7 +8,8 @@ public enum ItemName
     MASK_BLUE,
     MASK_GREEN,
 }
-public enum ItemState
+
+public enum ItemStatus
 {
     BASE = 0,
     COOKED = 10,

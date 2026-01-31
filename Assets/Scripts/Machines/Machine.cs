@@ -19,7 +19,7 @@ public class Machine : Interactable
     [SerializeField] GameObject targetObj;
     [SerializeField] bool start = false;
 
-    protected virtual ItemState finalState { get; }
+    protected virtual ItemStatus finalState { get; }
 
     Animator animator;
     Ingredient ingredient = null;

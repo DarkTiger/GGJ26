@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class Ingredient : Item
 {
+    SpriteRenderer spriteRenderer;
     public Sprite baseSprite, cookedSprite, powderSprite;
 
-    ItemState currentState = ItemState.BASE;
+    ItemStatus currentState = ItemStatus.BASE;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public void Use()
     { print("Used: " + this.GetType()); }
 
-    public void ChangeState(ItemState state)
+    public void ChangeState(ItemStatus state)
     {
         currentState = state;
     }

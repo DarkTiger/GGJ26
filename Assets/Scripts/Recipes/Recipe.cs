@@ -6,13 +6,15 @@ using UnityEngine;
 public struct ProcessedIngredient
 {
     public ItemName itemName;
-    public ItemState ingredientState;
+    public ItemStatus ingredientState;
 }
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "Data/Recipe")]
 public class Recipe : ScriptableObject
 {
     public List<ProcessedIngredient> ingredients;
+    [Space(10)]
+    public int value = 10;
 
     static bool Compare(List<ProcessedIngredient> mask, List<ProcessedIngredient> recipe)
     {
