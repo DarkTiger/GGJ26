@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 4866f5cffec817d4d824f4dbb792ae34
+guid: 49859bd650fbbc34b901caca2c62f168
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6835144354083843971
-    second: Blueberry-1_0
+      213: -4479569996130098024
+    second: aloe_1_0
+  - first:
+      213: -1841278827845490209
+    second: aloe_1_1
+  - first:
+      213: 8770788919393820641
+    second: aloe_1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blueberry-1_0
+      name: aloe_1_0
       rect:
         serializedVersion: 2
-        x: 82
-        y: 43
-        width: 358
-        height: 280
+        x: 101
+        y: 30
+        width: 126
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38f2fad639f4bde50800000000000000
-      internalID: 6835144354083843971
+      spriteID: 894ea2282de55d1c0800000000000000
+      internalID: -4479569996130098024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aloe_1_1
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 38
+        width: 87
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd962dd59a67276e0800000000000000
+      internalID: -1841278827845490209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aloe_1_2
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 24
+        width: 121
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ef96647d0a18b970800000000000000
+      internalID: 8770788919393820641
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Blueberry-1_0: 6835144354083843971
+      aloe_1_0: -4479569996130098024
+      aloe_1_1: -1841278827845490209
+      aloe_1_2: 8770788919393820641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

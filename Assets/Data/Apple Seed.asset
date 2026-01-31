@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f4da07f38b5304caebc5f5327d2ba3, type: 3}
+  m_Name: Apple Seed
+  m_EditorClassIdentifier: Assembly-CSharp::SeedData
+  SeedPrefab: {fileID: 9007673760048508774, guid: 3aa6c8c3e08ce724db24f669f70b5915, type: 3}
+  PlantPrefab: {fileID: 8209326987814110186, guid: 09cadcdb3eb04984d8ff2db510e1dab6, type: 3}
+  Icon: {fileID: 3856777956886470832, guid: 1e49a6eb57db45549ac3f0516e322e7f, type: 3}
+  Cost: 25

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f4da07f38b5304caebc5f5327d2ba3, type: 3}
+  m_Name: Violet Seed
+  m_EditorClassIdentifier: Assembly-CSharp::SeedData
+  SeedPrefab: {fileID: 103425048407722743, guid: c9c5f0fd735c649408a15f965bd04943, type: 3}
+  PlantPrefab: {fileID: 2216791040455400173, guid: f07d210665497e246aa36af5fea4caaf, type: 3}
+  Icon: {fileID: 2285118429850498459, guid: 271185ca053d1d943996e33fe0ffcdac, type: 3}
+  Cost: 25
