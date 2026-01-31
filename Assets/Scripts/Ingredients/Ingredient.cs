@@ -1,21 +1,21 @@
 using UnityEngine;
 
-public enum IngredientState
+public class Ingredient : Item
 {
-    BASE = 0,
-    COOKED = 10,
-    POWDER = 20,
-}
-
-public class Ingredient : MonoBehaviour
-{
+    SpriteRenderer spriteRenderer;
     public Sprite baseSprite, cookedSprite, powderSprite;
 
-    IngredientState currentState = IngredientState.BASE;
+    ItemStatus currentState = ItemStatus.BASE;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public void Use()
     { print("Used: " + this.GetType()); }
 
-    public void ChangeState(IngredientState state)
+    public void ChangeState(ItemStatus state)
     {
         currentState = state;
     }

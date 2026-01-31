@@ -1,0 +1,17 @@
+using UnityEngine;
+
+public class BH_Machine_Work : BH_MachineBehaviour
+{
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        machine.startTime = Time.time;
+    }
+
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if(Time.time - machine.startTime > machine.workTime)
+        {
+            animator.Play("FINISH");
+        }
+    }
+}

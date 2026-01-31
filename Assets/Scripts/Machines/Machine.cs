@@ -1,4 +1,3 @@
-using UnityEditor.UI;
 using UnityEngine;
 
 public enum MachineState
@@ -9,27 +8,30 @@ public enum MachineState
     FINISHED = 30,
 }
 
-public class Machine : MonoBehaviour
+public class Machine : Interactable
 {
     public float workTime = 4f;
     [Space(10)]
-    public Sprite lockedSprite, normalSprite, workingSprite, finishSprite;
+
+    [HideInInspector] public float startTime;
 
     // TEST
     [SerializeField] GameObject targetObj;
     [SerializeField] bool start = false;
 
-    protected virtual IngredientState finalState { get; }
+    protected virtual ItemStatus finalState { get; }
 
-    [SerializeField] MachineState currentState = MachineState.WAIT;
+    Animator animator;
     Ingredient ingredient = null;
-    float startTime;
 
-    public void StartWorking(Ingredient ing)
+    private void Start()
     {
-        ingredient = ing;
-        currentState = MachineState.WORKING;
-        startTime = Time.time;
+        animator = GetComponent<Animator>();
+        BH_MachineBehaviour[] bh = animator.GetBehaviours<BH_MachineBehaviour>();
+        foreach(BH_MachineBehaviour mbh in bh)
+        {
+            mbh.machine = this;
+        }    
     }
 
     private void Update()
@@ -37,22 +39,21 @@ public class Machine : MonoBehaviour
         if(start)
         { 
             if(targetObj.TryGetComponent(out Ingredient ing))
-            StartWorking(ing);
-            start = false;
-        }
-
-        if (currentState == MachineState.WORKING)
-        {
-            if (Time.time - startTime > workTime)
             {
-                currentState = MachineState.FINISHED;
-                FinishWork();
+                ingredient = ing;
+                OnInteract(null);
             }
+            start = false;
         }
     }
 
-    void FinishWork()
+    public override void OnInteract(Player player)
     {
-        ingredient.ChangeState(finalState);
+        print("interacting");
+
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT"))
+            animator.Play("WORK");
+        else if(animator.GetCurrentAnimatorStateInfo(0).IsName("FINISH"))
+            animator.Play("WAIT");
     }
 }
