@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12651b8f4fc236e40bc0c2e26b54c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plant
+  IngredientPrefab: {fileID: 8706635220550697207, guid: 965da423503ec5b46b70c1e56347975c, type: 3}
 --- !u!1 &6179473341764614343
 GameObject:
   m_ObjectHideFlags: 0
