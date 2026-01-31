@@ -8,10 +8,11 @@ public class Player : MonoBehaviour
     public InputAction MoveAction { get; private set; }
     public InputAction InteractAction { get; private set; }
     public Interactable CurrentInteractable { get; private set; }
+    public Item CurrentItem { get; private set; }
 
     PlayerInput playerInput;
     Rigidbody2D rb;
-    public Interactable candidateInteractable;
+    public Interactable CandidateInteractable;
 
 
     private void Awake()
@@ -40,13 +41,13 @@ public class Player : MonoBehaviour
             {
                 CurrentInteractable.OnDeInteract(this);
                 CurrentInteractable = null;
-                candidateInteractable = null;
+                CandidateInteractable = null;
             }
-            else if (candidateInteractable)
+            else if (CandidateInteractable)
             {
-                candidateInteractable.OnInteract(this);
-                CurrentInteractable = candidateInteractable;
-                candidateInteractable = null;
+                CurrentInteractable = CandidateInteractable;
+                CandidateInteractable.OnInteract(this);
+                CandidateInteractable = null;
             }
         }
     }
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
         {
             if (!interactable.InteractedBy)           
             {
-                candidateInteractable = interactable;
+                CandidateInteractable = interactable;
                 interactable.OnEntering(this);
             }
         }
@@ -69,7 +70,7 @@ public class Player : MonoBehaviour
         {
             interactable.OnExit(this);
             interactable.InteractedBy = null;
-            candidateInteractable = null;
+            CandidateInteractable = null;
         }
     }
 }
