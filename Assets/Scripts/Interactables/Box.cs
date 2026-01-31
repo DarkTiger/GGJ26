@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Box : Interactable
 {
@@ -7,8 +8,10 @@ public class Box : Interactable
     [SerializeField] PieMenu pieMenu;
     [SerializeField] Sprite boxClosed, boxOpen;
     public bool IsOpen = false;
+    Transform playerTransform;
     public override void OnInteract(Player player)
     {
+        playerTransform = player.gameObject.transform;
         base.OnInteract(player);
         if (!IsOpen)
         {
@@ -24,6 +27,19 @@ public class Box : Interactable
             pieMenuGameobject.SetActive(false);
             IsOpen = false;
             pieMenu.RemovePlayer();
+        }
+    }
+
+    private void Update()
+    {
+        if (IsOpen)
+        {
+            if(Vector2.Distance(transform.position, playerTransform.position) > 5f)
+            {
+                pieMenuGameobject.SetActive(false);
+                IsOpen = false;
+                pieMenu.RemovePlayer();
+            }
         }
     }
 }
