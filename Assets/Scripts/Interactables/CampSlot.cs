@@ -15,7 +15,6 @@ public class CampSlot : Interactable
     SpriteRenderer spriteRenderer;
 
 
-
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -38,16 +37,18 @@ public class CampSlot : Interactable
     void SetWet(bool isWet)
     {
         IsWet = isWet;
-        spriteRenderer.sprite = isWet? wetSprite: drySprite;
+        spriteRenderer.sprite = isWet? wetSprite : drySprite;
     }
 
     public override void OnInteract(Player player)
     {
-        Debug.Log("ON INTERACT CAMP");
-        if (player.CandidateInteractable == this && player.CurrentInteractable is Bucket)
+        if (player.CandidateInteractable == this && player.CurrentItem && player.CurrentItem is Bucket)
         {
-            (player.CurrentInteractable as Item).Use(player);
-            SetWet(true);
+            if ((player.CurrentItem as Bucket).IsFull)
+            {
+                player.CurrentItem.Use(player);
+                SetWet(true);
+            }
         }
     }
 }

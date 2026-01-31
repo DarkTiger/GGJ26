@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public InputAction MoveAction { get; private set; }
     public InputAction InteractAction { get; private set; }
     public Interactable CurrentInteractable { get; private set; }
-    public Item CurrentItem { get; private set; }
+    public Item CurrentItem { get; set; }
 
     PlayerInput playerInput;
     Rigidbody2D rb;
@@ -45,9 +45,18 @@ public class Player : MonoBehaviour
             }
             else if (CandidateInteractable)
             {
+                if (CandidateInteractable is Item)
+                {
+                    CurrentItem = CandidateInteractable as Item;
+                }
+
                 CurrentInteractable = CandidateInteractable;
                 CandidateInteractable.OnInteract(this);
                 CandidateInteractable = null;
+            }
+            else if (CurrentItem)
+            {
+                CurrentItem.OnDeInteract(this);
             }
         }
     }

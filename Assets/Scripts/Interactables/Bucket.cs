@@ -2,19 +2,37 @@ using UnityEngine;
 
 public class Bucket : Item
 {
+    [SerializeField] Sprite fullSprite;
+    [SerializeField] Sprite emptySprite;
+
+    public bool IsFull { get; private set; }
+
+    SpriteRenderer spriteRenderer;
+
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public override void Use(Player player)
     {
-        Debug.Log("Bucket used");   
-        
+        SetFull(false);
         base.Use(player);
     }
 
     public override void OnDeInteract(Player player)
     {
-        Debug.Log("Bucket released");
+        if (player.CandidateInteractable is CampSlot || player.CandidateInteractable is Well) return;
 
-        if (player.CandidateInteractable is CampSlot) return;
+        player.CurrentItem = null;
 
         base.OnDeInteract(player);
+    }
+
+    public void SetFull(bool isFull)
+    {
+        IsFull = isFull;
+        spriteRenderer.sprite = isFull? fullSprite : emptySprite;
     }
 }
