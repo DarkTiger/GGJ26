@@ -6,8 +6,6 @@ public class PieMenu : MonoBehaviour
 {
     [SerializeField] ItemMenu item1, item2, item3, item4, item5, item6;
 
-    [SerializeField] Color baseColor, selectColor;
-
     [SerializeField] float threshold;
 
     Gamepad gamepad = Gamepad.current;
