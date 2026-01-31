@@ -22,16 +22,23 @@ public class Item : Interactable
         }
     }
 
+    public virtual void Use(Player player)
+    {
+
+    }
+
     void Grab(Player player)
     {
         GrabbedBy = player;
         transform.parent = player.transform;
+        GetComponent<Collider2D>().enabled = false;
     }
 
     void Release(Vector3 releasePos = default)
     {
         GrabbedBy = null;
         transform.parent = null;
+        GetComponent<Collider2D>().enabled = true;
 
         if (releasePos != Vector3.zero)
         {
