@@ -13,6 +13,7 @@ public class Item : Interactable
             Grab(player);
         }
     }
+
     public override void OnDeInteract(Player player)
     {
         if (GrabbedBy)
@@ -35,7 +36,12 @@ public class Item : Interactable
 
     public void Release(Vector3 releasePos = default)
     {
-        GrabbedBy = null;
+        if (GrabbedBy)
+        {
+            GrabbedBy.CurrentItem = null;
+            GrabbedBy = null;
+        }
+        
         transform.parent = null;
         GetComponent<Collider2D>().enabled = true;
 

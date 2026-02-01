@@ -15,4 +15,4 @@ MonoBehaviour:
   SeedPrefab: {fileID: 5643237907122172868, guid: 0e6296bbd7cf30a42a4d615b4ca21561, type: 3}
   PlantPrefab: {fileID: 8010049527287850278, guid: 81a6262354e621a4f9b2e780988c5eea, type: 3}
   Icon: {fileID: 1367158599147397449, guid: 5564b7b95956c1745b6994b81d16086e, type: 3}
-  Cost: 25
+  Cost: 12
