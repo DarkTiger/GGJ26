@@ -276,7 +276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12651b8f4fc236e40bc0c2e26b54c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plant
+  useClip: {fileID: 0}
   IngredientPrefab: {fileID: 8706635220550697207, guid: 965da423503ec5b46b70c1e56347975c, type: 3}
+  finalIngredient: {fileID: 0}
+  GROW_TIME: 20
 --- !u!1 &2706239483974833180
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,8 @@ public class Plant : Item
     public SO_Ingredient finalIngredient;
 
     float growingTime;
-    public float GROW_TIME = 30f;
+    public float GROW_TIME = 20f;
+
     private void Update()
     {
         if (!IsWet || GrowLevel >= 2) return;
