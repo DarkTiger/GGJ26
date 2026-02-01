@@ -17,7 +17,9 @@ public class Player : MonoBehaviour
 
     PlayerInput playerInput;
     Rigidbody2D rb;
-    
+    Animator animator;
+    float lastVerticalValue = 0f;
+    float lastHorizontalValue = 0f;
 
 
     private void Awake()
@@ -31,13 +33,28 @@ public class Player : MonoBehaviour
 
         transform.GetChild(0).gameObject.SetActive(playerInput.playerIndex == 0);
         transform.GetChild(1).gameObject.SetActive(playerInput.playerIndex == 1);
+        animator = playerInput.playerIndex == 0? transform.GetChild(0).GetComponent<Animator>() : transform.GetChild(1).GetComponent<Animator>();
 
         FindFirstObjectByType<PlayerInputManager>().GetComponentInChildren<Canvas>().enabled = false;
     }
 
     private void FixedUpdate()
     {
-        rb.AddForce(MoveAction.ReadValue<Vector2>() * movementSpeed, ForceMode2D.Impulse);
+        Vector2 moveValue = MoveAction.ReadValue<Vector2>();
+        rb.AddForce(moveValue * movementSpeed, ForceMode2D.Impulse);
+        lastHorizontalValue = moveValue.x;
+        lastVerticalValue = moveValue.y;
+        animator.SetFloat("Vertical", -lastVerticalValue);
+        animator.SetFloat("Horizontal", lastHorizontalValue);
+
+        if (moveValue.magnitude < 0.01f)
+        {
+            animator.SetFloat("Speed", 0f);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0.75f);
+        }
     }
 
     private void Update()

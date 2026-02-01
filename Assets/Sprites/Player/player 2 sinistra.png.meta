@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 4724ddc658ec937488d5bbf66f1e18e5
+guid: f3623e8dcdd565545a0b7dfbbe303b61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3564591858580322509
-    second: Pozzo_0
+      213: -4388318055130097841
+    second: player 2 sinistra_0
+  - first:
+      213: -4519303512490665788
+    second: player 2 sinistra_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 85
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pozzo_0
+      name: player 2 sinistra_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 13
         y: 6
-        width: 507
-        height: 505
+        width: 97
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc8fdebc869f77130800000000000000
-      internalID: 3564591858580322509
+      spriteID: f47998aaaff8913c0800000000000000
+      internalID: -4388318055130097841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player 2 sinistra_1
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 6
+        width: 78
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c891d156653841c0800000000000000
+      internalID: -4519303512490665788
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pozzo_0: 3564591858580322509
+      player 2 sinistra_0: -4388318055130097841
+      player 2 sinistra_1: -4519303512490665788
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
