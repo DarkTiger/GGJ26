@@ -20,6 +20,7 @@ public class Goblin : Interactable
     private bool move = true;
     private Animator animator;
     private Recipe recipeMask;
+    private int cost = 10;
 
     public float WaitMaskTimer = 0;
     float timer = 0;
@@ -47,6 +48,7 @@ public class Goblin : Interactable
             {
                 maskGameobject.GetComponent<SpriteRenderer>().color = recipeMask.color;
                 maskGameobject.SetActive(true);
+                cost = recipeMask.value;
                 isHappy = true;
                 Destroy(player.CurrentItem.gameObject);
                 spriteRecipe.enabled = false;
@@ -124,7 +126,7 @@ public class Goblin : Interactable
                         {
                             if (isHappy)
                             {
-                                Money.Instance.AddMoney(10);
+                                Money.Instance.AddMoney(cost);
                                 GameManager.Instance.AddHappyGoblin();
                             }
                             else

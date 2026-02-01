@@ -20,4 +20,4 @@ MonoBehaviour:
     status: 0
   - ingredient: {fileID: 11400000, guid: 2a552a12117f0db4db044f09710ebfff, type: 2}
     status: 10
-  value: 10
+  value: 8
