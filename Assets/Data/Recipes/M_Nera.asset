@@ -16,4 +16,4 @@ MonoBehaviour:
   sprite: {fileID: 6263521877169465104, guid: 4f084f85764a68949b662407cad31a7b, type: 3}
   color: {r: 0.17735851, g: 0.10509188, b: 0.07997865, a: 1}
   ingredients: []
-  value: 0
+  value: 8

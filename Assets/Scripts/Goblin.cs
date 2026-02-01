@@ -5,6 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Goblin : Interactable
 {
     [SerializeField] SpriteRenderer spriteRecipe;
+    [SerializeField] SpriteRenderer comic;
     [SerializeField] BoxCollider2D boxCollider2D;
     [SerializeField] GameObject maskGameobject;
     [SerializeField] GameObject angryGameObject;
@@ -52,6 +53,7 @@ public class Goblin : Interactable
                 isHappy = true;
                 Destroy(player.CurrentItem.gameObject);
                 spriteRecipe.enabled = false;
+                comic.enabled = false;
                 move = true;
                 Exit = true;
             }
