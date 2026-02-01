@@ -22,6 +22,7 @@ public class SpawnManager : MonoBehaviour
         {
             bed.SetBedBusyState();
             GameObject goblin = Instantiate(goblinPrefab, spwan.position, spwan.rotation);
+            GameManager.Instance.SetSpawnCount();
             Goblin goblinScript = goblin.GetComponent<Goblin>();
             goblinScript.SetFinalCheckpoint(bed.GetCheckpointBed());
             foreach (Transform item in enteringCheckpoint)
