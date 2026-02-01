@@ -227,6 +227,9 @@ MonoBehaviour:
   boxCollider2D: {fileID: 569619892924701573}
   maskGameobject: {fileID: 8192656910866015202}
   angryGameObject: {fileID: 992370536060637205}
+  angry: {fileID: 8300000, guid: a3f10721c5060c54b8893a1c15d51c58, type: 3}
+  happy: {fileID: 8300000, guid: 8caa6eb9701de9a4eb607bf05ab984c5, type: 3}
+  coin: {fileID: 8300000, guid: 017fcc01108bee74397f28f5cafca190, type: 3}
   Exit: 0
   MaskAccepted: 0
   WaitMaskTimer: 15

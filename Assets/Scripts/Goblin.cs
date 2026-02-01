@@ -9,6 +9,9 @@ public class Goblin : Interactable
     [SerializeField] BoxCollider2D boxCollider2D;
     [SerializeField] GameObject maskGameobject;
     [SerializeField] GameObject angryGameObject;
+    [SerializeField] AudioClip angry;
+    [SerializeField] AudioClip happy;
+    [SerializeField] AudioClip coin;
     List<Transform> checkpoint;
     Transform finalCheckpoint;
     List<Transform> exitCheckpoints;
@@ -51,6 +54,7 @@ public class Goblin : Interactable
                 maskGameobject.SetActive(true);
                 cost = recipeMask.value;
                 isHappy = true;
+                AudioSource.PlayClipAtPoint(happy, Camera.main.transform.position, 0.1f);
                 Destroy(player.CurrentItem.gameObject);
                 spriteRecipe.enabled = false;
                 comic.enabled = false;
@@ -130,6 +134,7 @@ public class Goblin : Interactable
                             {
                                 Money.Instance.AddMoney(cost);
                                 GameManager.Instance.AddHappyGoblin();
+                                AudioSource.PlayClipAtPoint(coin, Camera.main.transform.position, 0.1f);
                             }
                             else
                             {
@@ -153,9 +158,13 @@ public class Goblin : Interactable
                 timer += Time.deltaTime;
                 if (timer > WaitMaskTimer)
                 {
+                    AudioSource.PlayClipAtPoint(angry, Camera.main.transform.position, 0.1f);
                     Exit = true;
                     move = true;
-                    angryGameObject.SetActive(true);   
+                    onBed = false;
+                    timer = 0;
+                    angryGameObject.SetActive(true);
+
                     //me ne vado
                 }
             }
