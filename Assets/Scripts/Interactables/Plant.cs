@@ -45,6 +45,7 @@ public class Plant : Item
         if(GrowLevel == 2)
         {
             GameObject ingredient = Instantiate(IngredientPrefab);
+            ingredient.GetComponent<Ingredient>().data = finalIngredient;
             ingredient.GetComponent<Ingredient>()?.UpdateSprite();
             ingredient.transform.position = transform.position;
             ingredient.GetComponent<Interactable>().OnInteract(player);

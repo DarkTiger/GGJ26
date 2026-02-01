@@ -7,10 +7,22 @@ public class MixingTable : Machine
     [SerializeField] GameObject maskPrefab;
     [SerializeField] Recipe wrongRecipe;
     [SerializeField] Sprite workingSprite;
+
+    bool recipeReady;
+
     public override void OnInteract(Player player)
     {
         if(!animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT"))
             return;
+
+        if(player.CurrentItem == null && recipeReady)
+        {
+            recipeReady = false;
+
+            ingredients.Clear();
+            popUp.Hide();
+            GiveItem(player);
+        }
 
         if (ingredients.Count == 0)
         {
@@ -43,16 +55,29 @@ public class MixingTable : Machine
                 ingredients.Add(newProIng);
 
                 Recipe recipe = Recipe.GetRecipeFromIngredients(ingredients, out bool partial);
+                if(recipe == null)
+                {
+                    foreach (Transform child in transform)
+                    {
+                        if (child.gameObject.GetComponent<PopUp>() || child.gameObject.GetComponent<Mask>())
+                            continue;
+                        Destroy(child.gameObject);
+                    }
+                    ingredients.Clear();
+                    return;
+                }
 
                 if (!partial)
                 {
+                    recipeReady = true;
+
                     foreach(Transform child in transform)
                     {
                         if (child.gameObject.GetComponent<PopUp>())
                             continue;
                         Destroy(child.gameObject);
                     }
-                    
+
                     Destroy(player.CurrentItem.gameObject);
                     player.CurrentItem = null;
                     player.CurrentInteractable = null;
@@ -70,11 +95,10 @@ public class MixingTable : Machine
             }
             else
             {
-                print("getting back item");
-
-                ingredients.Clear();
-                popUp.Hide();
-                GiveItem(player);
+                //print("getting back item");
+                //ingredients.Clear();
+                //popUp.Hide();
+                //GiveItem(player);
             }
         }
     }
@@ -84,10 +108,19 @@ public class MixingTable : Machine
         Mask mask = itemInside.GetComponent<Mask>();
 
         if(mask == null)
+        {
+            animator.Play("WAIT");
+            popUp.Hide();
             return;
-        print(mask.ToString());
+        }
+
         popUp.Show();
         popUp.UpdateFG(mask.recipe.sprite);
+        
+        if(ingredients.Count == 0)
+        {
+            spriteRenderer.sprite = initialSprite;
+        }
     }
 
     protected override void UseWorkingSprite()

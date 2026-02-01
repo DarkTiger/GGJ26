@@ -16,7 +16,7 @@ public class Machine : Interactable
     public GameObject itemInside = null;
     [HideInInspector] public PopUp popUp;
     [HideInInspector] public SpriteRenderer spriteRenderer;
-    Sprite initialSprite;
+    protected Sprite initialSprite;
     [Space(10)]
     [HideInInspector] public float startTime;
 
