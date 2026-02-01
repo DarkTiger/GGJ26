@@ -54,6 +54,7 @@ public class Goblin : Interactable
                 maskGameobject.SetActive(true);
                 cost = recipeMask.value;
                 isHappy = true;
+                MaskAccepted = true;
                 AudioSource.PlayClipAtPoint(happy, Camera.main.transform.position, 0.1f);
                 Destroy(player.CurrentItem.gameObject);
                 spriteRecipe.enabled = false;
