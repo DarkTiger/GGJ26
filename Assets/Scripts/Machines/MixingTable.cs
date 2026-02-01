@@ -6,7 +6,7 @@ public class MixingTable : Machine
     [SerializeField] List<ProcessedIngredient> ingredients;
     [SerializeField] GameObject maskPrefab;
     [SerializeField] Recipe wrongRecipe;
-
+    [SerializeField] Sprite workingSprite;
     public override void OnInteract(Player player)
     {
         if(!animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT"))
@@ -72,5 +72,13 @@ public class MixingTable : Machine
                 GiveItem(player);
             }
         }
+    }
+
+    protected override void UseWorkingSprite()
+    {
+        if (workingSprite == null)
+            return;
+
+        spriteRenderer.sprite = workingSprite;
     }
 }
