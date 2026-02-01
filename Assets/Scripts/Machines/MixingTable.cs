@@ -22,7 +22,7 @@ public class MixingTable : Machine
                 newProIng.ingredient = (player.CurrentItem as Ingredient).data;
                 newProIng.status = (player.CurrentItem as Ingredient).status;
                 ingredients.Add(newProIng);
-                IngestItem(player, true);
+                IngestItem(player);
             }
             else
             {
@@ -35,6 +35,7 @@ public class MixingTable : Machine
             if (player.CurrentItem != null && player.CurrentItem is Ingredient)
             {
                 print("combining ingredients");
+                animator.Play("WORK");
 
                 ProcessedIngredient newProIng;
                 newProIng.ingredient = (player.CurrentItem as Ingredient).data;
@@ -47,6 +48,8 @@ public class MixingTable : Machine
                 {
                     foreach(Transform child in transform)
                     {
+                        if (child.gameObject.GetComponent<PopUp>())
+                            continue;
                         Destroy(child.gameObject);
                     }
                     
@@ -60,6 +63,7 @@ public class MixingTable : Machine
 
                     maskObj.transform.parent = transform;
                     maskObj.transform.position = transform.position;
+                    maskObj.gameObject.SetActive(false);
                     maskObj.GetComponent<Mask>().recipe = recipe? recipe: wrongRecipe;
                     maskObj.GetComponent<Mask>().UpdateSprite();
                 }
@@ -69,9 +73,21 @@ public class MixingTable : Machine
                 print("getting back item");
 
                 ingredients.Clear();
+                popUp.Hide();
                 GiveItem(player);
             }
         }
+    }
+
+    public override void FinishWorking()
+    {
+        Mask mask = itemInside.GetComponent<Mask>();
+
+        if(mask == null)
+            return;
+        print(mask.ToString());
+        popUp.Show();
+        popUp.UpdateFG(mask.recipe.sprite);
     }
 
     protected override void UseWorkingSprite()

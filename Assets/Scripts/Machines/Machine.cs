@@ -76,7 +76,6 @@ public class Machine : Interactable
 
         animator.Play("WORK");
         UseWorkingSprite();
-
     }
 
     protected virtual void UseWorkingSprite()
@@ -106,5 +105,6 @@ public class Machine : Interactable
 
         animator.Play("WAIT");
         spriteRenderer.sprite = initialSprite;
+        popUp.Hide();
     }
 }
