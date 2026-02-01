@@ -44,11 +44,14 @@ TagManager:
   - name: BG
     uniqueID: 4294343597
     locked: 0
-  - name: Player
-    uniqueID: 181816551
-    locked: 0
   - name: Environment
     uniqueID: 3285556927
+    locked: 0
+  - name: Env Interactable
+    uniqueID: 3612452571
+    locked: 0
+  - name: Player
+    uniqueID: 181816551
     locked: 0
   - name: Items
     uniqueID: 1723489141
