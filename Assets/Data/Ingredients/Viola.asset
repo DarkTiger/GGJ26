@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15dd2321ec34ea41a4252cc2dac574b, type: 3}
+  m_Name: Viola
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Ingredient
+  startStatus: 0
+  workedColor: {r: 0.9909758, g: 1, b: 0.42075467, a: 1}
+  baseSprite: {fileID: 21300000, guid: b548548b3bf7ad0448d7a9d6b9a5ac52, type: 3}
+  cookedSprite: {fileID: 0}
+  powderSprite: {fileID: 4386490422135513868, guid: 06fd46b25d10197489afd4049e4e7e0f, type: 3}
+  cauldronSprite: {fileID: 3156250369992245353, guid: 3dd2073ebcffe984b8c5fac50c3ae3ec, type: 3}
+  mortarSprite: {fileID: 2604154327795418422, guid: 27be4d10ce8915241834ac7b3e87f8ba, type: 3}

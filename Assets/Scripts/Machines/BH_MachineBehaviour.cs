@@ -4,6 +4,11 @@ public class BH_MachineBehaviour : StateMachineBehaviour
 {
     public Machine machine;
 
+    protected Machine GetMachine(Animator anim)
+    {
+        return anim.gameObject.GetComponent<Machine>();
+    }
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{

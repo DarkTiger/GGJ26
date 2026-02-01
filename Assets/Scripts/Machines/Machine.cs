@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum MachineState
@@ -13,6 +14,9 @@ public class Machine : Interactable
     [Space(10)]
     public float workTime = 4f;
     public GameObject itemInside = null;
+    [HideInInspector] public PopUp popUp;
+    [HideInInspector] public SpriteRenderer spriteRenderer;
+    Sprite initialSprite;
     [Space(10)]
     [HideInInspector] public float startTime;
 
@@ -20,23 +24,31 @@ public class Machine : Interactable
 
     protected Animator animator;
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
-        BH_MachineBehaviour[] bh = animator.GetBehaviours<BH_MachineBehaviour>();
-        foreach(BH_MachineBehaviour mbh in bh)
-        {
-            mbh.machine = this;
-        }    
-    }
+        popUp = GetComponentInChildren<PopUp>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        initialSprite = spriteRenderer.sprite;
 
+        //BH_MachineBehaviour[] bh = animator.GetBehaviours<BH_MachineBehaviour>();
+        //foreach (BH_MachineBehaviour mbh in bh)
+        //{
+        //    mbh.machine = this;
+        //}
+    }
+    
     public override void OnInteract(Player player)
     {
         print("Interacting with: " + name);
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT") && itemInside == null && player.CandidateInteractable == this)
         {
-            if (player.CurrentItem?.gameObject.GetComponent<Ingredient>() == null)
+            Ingredient inputIngredient = player.CurrentItem.gameObject.GetComponent<Ingredient>();
+
+            if (inputIngredient == null)
+                return;
+            if (inputIngredient.status != IngredientStatus.BASE)
                 return;
 
                 print("Putting item in cauldron");
@@ -60,7 +72,21 @@ public class Machine : Interactable
         itemInside.transform.SetParent(transform, true);
         if(hide)
             itemInside.gameObject.SetActive(false);
+
         animator.Play("WORK");
+        UseWorkingSprite();
+
+    }
+
+    protected virtual void UseWorkingSprite()
+    {
+    }
+    
+    public virtual void FinishWorking()
+    {
+        popUp.Show();
+        Ingredient ing = itemInside.GetComponent<Ingredient>();
+        popUp.UpdateFG(ing.data.GetSprite(IngredientStatus.COOKED));
     }
 
     protected void GiveItem(Player player)
@@ -76,6 +102,8 @@ public class Machine : Interactable
         player.CurrentItem = it;
         player.CurrentInteractable = it;
         itemInside = null;
+
         animator.Play("WAIT");
+        spriteRenderer.sprite = initialSprite;
     }
 }
