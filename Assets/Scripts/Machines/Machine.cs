@@ -67,6 +67,7 @@ public class Machine : Interactable
     protected void IngestItem(Player player, bool hide=true)
     {
         itemInside = player.CurrentItem.gameObject;
+        itemInside.GetComponent<Collider2D>().enabled = false;
         player.CurrentItem.Release();
         player.CurrentItem = null;
         itemInside.transform.SetParent(transform, true);

@@ -22,7 +22,7 @@ public class MixingTable : Machine
                 newProIng.ingredient = (player.CurrentItem as Ingredient).data;
                 newProIng.status = (player.CurrentItem as Ingredient).status;
                 ingredients.Add(newProIng);
-                IngestItem(player, false);
+                IngestItem(player, true);
             }
             else
             {

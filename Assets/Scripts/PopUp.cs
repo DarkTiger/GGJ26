@@ -6,20 +6,20 @@ public class PopUp : MonoBehaviour
     [SerializeField] Image bg, fg;
     public ScriptableObject popUpData;
 
-    public void UpdateBG(Sprite s)
+    public virtual void UpdateBG(Sprite s)
     {
         bg.sprite = s;
     }
-    public void UpdateFG(Sprite s)
+    public virtual void UpdateFG(Sprite s)
     {
         fg.sprite = s;
     }
 
-    public void Show()
+    public virtual void Show()
     {
         gameObject.SetActive(true);
     }
-    public void Hide()
+    public virtual void Hide()
     {
         gameObject.SetActive(false);
     }
