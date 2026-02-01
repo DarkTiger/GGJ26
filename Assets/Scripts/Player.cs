@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] AudioClip grabClip;
+    [SerializeField] AudioClip releaseClip;
     [SerializeField] float movementSpeed = 1f;
 
     public InputAction MoveAction { get; private set; }
@@ -17,6 +19,10 @@ public class Player : MonoBehaviour
     public float LastVerticalValue { get; private set; } = 0f;
     public float LastHorizontalValue { get; private set; } = 0f;
 
+    AudioSource footstepSource;
+    
+
+
     PlayerInput playerInput;
     Rigidbody2D rb;
     Animator animator;
@@ -26,6 +32,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
+        footstepSource = GetComponent<AudioSource>();
         MoveAction = playerInput.actions["Move"];
         InteractAction = playerInput.actions["Interact"];
         Interact2Action = playerInput.actions["Interact2"];
@@ -50,10 +57,12 @@ public class Player : MonoBehaviour
         if (moveValue.magnitude < 0.01f)
         {
             animator.SetFloat("Speed", 0f);
+            footstepSource.volume = 0f;
         }
         else
         {
             animator.SetFloat("Speed", 0.75f);
+            footstepSource.volume = 1f;
 
             if (CurrentItem)
             {
@@ -69,6 +78,7 @@ public class Player : MonoBehaviour
             if (CurrentInteractable)
             {
                 CurrentInteractable.OnDeInteract(this);
+                AudioSource.PlayClipAtPoint(releaseClip, Camera.main.transform.position, 0.25f);
                 CurrentInteractable = null;
                 CandidateInteractable = null;
             }
@@ -78,6 +88,8 @@ public class Player : MonoBehaviour
                 {
                     CurrentItem = CandidateInteractable as Item;
                 }
+
+                AudioSource.PlayClipAtPoint(grabClip, Camera.main.transform.position, 0.25f);
 
                 CurrentInteractable = CandidateInteractable;
                 CandidateInteractable.OnInteract(this);

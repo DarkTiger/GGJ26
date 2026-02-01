@@ -32,6 +32,7 @@ public class Bucket : Item
 
     public void SetFull(bool isFull)
     {
+        AudioSource.PlayClipAtPoint(UseClip, Camera.main.transform.position, 0.5f);
         IsFull = isFull;
         spriteRenderer.sprite = isFull? fullSprite : emptySprite;
     }
