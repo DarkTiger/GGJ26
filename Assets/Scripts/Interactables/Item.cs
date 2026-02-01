@@ -34,6 +34,7 @@ public class Item : Interactable
         GrabbedBy = player;
         transform.parent = player.transform;
         GetComponent<Collider2D>().enabled = false;
+        transform.localPosition = new Vector3((player.LastVerticalValue <= -0.1f ? 0.5f : -0.1f) + player.LastHorizontalValue * 1.25f, player.LastVerticalValue + 0.5f, 0f);
     }
 
     public void Release(Vector3 releasePos = default)
