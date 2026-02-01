@@ -105,9 +105,10 @@ public class PieMenu : MonoBehaviour
 
     public void GiveItem(ItemMenu itemMenu)
     {
-        if (player.Interact2Action.WasPressedThisFrame())
+        if (player.Interact2Action.WasPressedThisFrame() && itemMenu.SeedData.Cost <= GameManager.Instance.GetMoney())
         {
             Seed seed = Instantiate(itemMenu.SeedData.SeedPrefab).GetComponent<Seed>();
+            GameManager.Instance.DecreaseMoney(itemMenu.SeedData.Cost);
             seed.SetSeedData(itemMenu.SeedData);
             player.CurrentInteractable = seed;
             player.CurrentItem = seed;
