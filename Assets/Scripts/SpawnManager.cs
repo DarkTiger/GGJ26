@@ -34,10 +34,6 @@ public class SpawnManager : MonoBehaviour
             }
             goblinScript.SetBed(bed);
         }
-        else
-        {
-            Debug.Log("non ci sono letti liberi");
-        }
     }
 
     private void Update()
