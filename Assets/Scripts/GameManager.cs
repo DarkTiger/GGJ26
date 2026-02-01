@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int money,happyGoblin,angryGoblin;
     public int gameOverCount;
+    public int spawnCount;
 
     public bool IsGameOver = false;
 
@@ -43,6 +44,16 @@ public class GameManager : MonoBehaviour
     public int GetMoney()
     {
         return money;
+    }
+
+    public void SetSpawnCount()
+    {
+        spawnCount++;
+    }
+
+    public int GetSpawnCount()
+    {
+        return spawnCount;
     }
 
     public void IncreaseMoney(int value)

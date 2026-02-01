@@ -233,6 +233,7 @@ MonoBehaviour:
   Exit: 0
   MaskAccepted: 0
   WaitMaskTimer: 30
+  WaitMaskFirstTimer: 60
 --- !u!61 &569619892924701573
 BoxCollider2D:
   m_ObjectHideFlags: 0

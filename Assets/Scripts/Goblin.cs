@@ -27,6 +27,7 @@ public class Goblin : Interactable
     private int cost = 10;
 
     public float WaitMaskTimer = 0;
+    public float WaitMaskFirstTimer;
     float timer = 0;
 
     private int currentWaypointIndex = 0;
@@ -157,16 +158,33 @@ public class Goblin : Interactable
             if (!MaskAccepted)
             {
                 timer += Time.deltaTime;
-                if (timer > WaitMaskTimer)
+                if (GameManager.Instance.GetSpawnCount() == 1)
                 {
-                    AudioSource.PlayClipAtPoint(angry, Camera.main.transform.position, 0.1f);
-                    Exit = true;
-                    move = true;
-                    onBed = false;
-                    timer = 0;
-                    angryGameObject.SetActive(true);
+                    if (timer > WaitMaskFirstTimer)
+                    {
+                        AudioSource.PlayClipAtPoint(angry, Camera.main.transform.position, 0.1f);
+                        Exit = true;
+                        move = true;
+                        onBed = false;
+                        timer = 0;
+                        angryGameObject.SetActive(true);
 
-                    //me ne vado
+                        //me ne vado
+                    }
+                }
+                else
+                {
+                    if (timer > WaitMaskTimer)
+                    {
+                        AudioSource.PlayClipAtPoint(angry, Camera.main.transform.position, 0.1f);
+                        Exit = true;
+                        move = true;
+                        onBed = false;
+                        timer = 0;
+                        angryGameObject.SetActive(true);
+
+                        //me ne vado
+                    }
                 }
             }
         }
