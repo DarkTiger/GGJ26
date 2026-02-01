@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361b830261d157a4eb69caeb5fa71192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MixingTable
-  workTime: 0.5
+  workTime: 2
   itemInside: {fileID: 0}
   popUp: {fileID: 0}
   spriteRenderer: {fileID: 0}
