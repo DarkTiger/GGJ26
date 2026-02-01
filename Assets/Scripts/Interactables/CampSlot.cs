@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CampSlot : Interactable
 {
+    [SerializeField] AudioClip cultivateClip;
     [SerializeField] Sprite drySprite;
     [SerializeField] Sprite wetSprite;
     
@@ -54,7 +55,8 @@ public class CampSlot : Interactable
                 CurrentSeed.SetWet(IsWet);
                 CurrentSeed.CampSlot = this;
                 (player.CurrentItem as Seed).SetSlotPos(transform.position);
-                player.CurrentItem.Use(player);               
+                player.CurrentItem.Use(player);
+                AudioSource.PlayClipAtPoint(cultivateClip, Camera.main.transform.position, 0.5f);
             }
         }
     }

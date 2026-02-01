@@ -4,6 +4,8 @@ public class PieMenu : MonoBehaviour
 {
     [SerializeField] ItemMenu item1, item2, item3, item4, item5, item6;
     [SerializeField] float threshold;
+    [SerializeField] AudioClip buySeedClip;
+
     bool interacted = false;
 
     Player player;
@@ -107,6 +109,7 @@ public class PieMenu : MonoBehaviour
     {
         if (player.Interact2Action.WasPressedThisFrame() && itemMenu.SeedData.Cost <= GameManager.Instance.GetMoney())
         {
+            AudioSource.PlayClipAtPoint(buySeedClip, Camera.main.transform.position, 0.5f);
             Seed seed = Instantiate(itemMenu.SeedData.SeedPrefab).GetComponent<Seed>();
             GameManager.Instance.DecreaseMoney(itemMenu.SeedData.Cost);
             seed.SetSeedData(itemMenu.SeedData);

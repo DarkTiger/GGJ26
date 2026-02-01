@@ -270,7 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!4 &32509309 stripped
 Transform:
@@ -684,7 +685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1 &95946159
 GameObject:
@@ -933,7 +935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1001 &234862023
 PrefabInstance:
@@ -1147,7 +1150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1001 &287977116
 PrefabInstance:
@@ -1422,7 +1426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!4 &326610900 stripped
 Transform:
@@ -1983,7 +1988,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1001 &352825996
 PrefabInstance:
@@ -2197,7 +2203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1 &380654155
 GameObject:
@@ -2350,7 +2357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1 &443482224
 GameObject:
@@ -3947,7 +3955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1001 &745844671
 PrefabInstance:
@@ -4309,7 +4318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1 &925796207
 GameObject:
@@ -4916,7 +4926,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!4 &1127205340 stripped
 Transform:
@@ -6537,7 +6548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1 &1605347899
 GameObject:
@@ -6690,7 +6702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!4 &1613700317 stripped
 Transform:
@@ -7389,6 +7402,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 16153528326704077, guid: a941960a38c305c40bcb16ecc5b3760a, type: 3}
+      propertyPath: buySeedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: dc0b02a61df4d9a4bb21b2320c7b7648, type: 3}
     - target: {fileID: 1497161511594446283, guid: a941960a38c305c40bcb16ecc5b3760a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -2.1
@@ -7489,6 +7506,10 @@ PrefabInstance:
       propertyPath: seedData
       value: 
       objectReference: {fileID: 11400000, guid: fb1e18edde4f3f24c84572f1970b9192, type: 2}
+    - target: {fileID: 7666682060410727752, guid: a941960a38c305c40bcb16ecc5b3760a, type: 3}
+      propertyPath: boxClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1650d52854573ab4fab447fe188f4585, type: 3}
     - target: {fileID: 8231080619574343167, guid: a941960a38c305c40bcb16ecc5b3760a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -7653,7 +7674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1001 &1843215952
 PrefabInstance:
@@ -8021,7 +8043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1 &2046554198
 GameObject:
@@ -8325,7 +8348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1 &2053795112
 GameObject:
@@ -8478,7 +8502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!4 &2072135087 stripped
 Transform:
@@ -8770,7 +8795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba9eb27f99c60498c632c0660e22be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CampSlot
-  drySprite: {fileID: 21300000, guid: 21193610e7b51c549a5a89e2a38d2ac4, type: 3}
+  cultivateClip: {fileID: 8300000, guid: 6015b6c9c3176c54c919149cc6e886f3, type: 3}
+  drySprite: {fileID: 21300000, guid: 492c0e99b70126844b6eb54c72a66c15, type: 3}
   wetSprite: {fileID: 21300000, guid: 6638bbbf2078ac54d94542edf60a28c7, type: 3}
 --- !u!1 &2135394728
 GameObject:
