@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current.selectButton.wasPressedThisFrame)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame || (Gamepad.current != null && Gamepad.current.selectButton.wasPressedThisFrame))
         {
             SceneManager.LoadScene(0);
         }
