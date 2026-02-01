@@ -5,11 +5,10 @@ public class Plant : Item
     public bool IsWet { get; set; }
     public int GrowLevel { get; private set; } = 0;
     public GameObject IngredientPrefab;
+    public SO_Ingredient finalIngredient;
 
     float growingTime;
-    const float GROW_TIME = 30f;
-
-
+    public float GROW_TIME = 30f;
     private void Update()
     {
         if (!IsWet || GrowLevel >= 2) return;
@@ -24,7 +23,6 @@ public class Plant : Item
             }
         }
     }
-
     public void AddGrowLevel()
     {
         GrowLevel++;
@@ -40,14 +38,19 @@ public class Plant : Item
 
     public override void OnInteract(Player player)
     {
-        if(player.CurrentItem != null)
-            return;
+        base.OnInteract(player);
 
-        GameObject ingredient = Instantiate(IngredientPrefab);
-        ingredient.transform.position = transform.position;
-        
-        ingredient.GetComponent<Interactable>().OnInteract(player);
-
-        Destroy(gameObject);
+        print("interacting with plant");
+        if(GrowLevel == 2)
+        {
+            GameObject ingredient = Instantiate(IngredientPrefab);
+            ingredient.GetComponent<Ingredient>()?.UpdateSprite();
+            ingredient.transform.position = transform.position;
+            ingredient.GetComponent<Interactable>().OnInteract(player);
+            Item it = ingredient.GetComponent<Item>();
+            player.CurrentInteractable = it;
+            player.CurrentItem = it;
+            Destroy(gameObject);
+        }
     }
 }

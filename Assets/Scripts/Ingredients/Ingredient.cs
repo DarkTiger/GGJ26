@@ -6,7 +6,7 @@ public class Ingredient : Item
     SpriteRenderer spriteRenderer;
     [SerializeField] public IngredientStatus status;
 
-    private void Start()
+    private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateSprite();
