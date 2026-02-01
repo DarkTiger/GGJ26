@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Money
   spriteGameObject: {fileID: 559476999159151162}
+  cash: {fileID: 8300000, guid: 1d46539182221cd428f611c8874ea06d, type: 3}
 --- !u!61 &3974932065752494450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,5 +183,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0

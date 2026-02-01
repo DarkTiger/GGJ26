@@ -14,12 +14,12 @@ public class Player : MonoBehaviour
     public Interactable CandidateInteractable { get; set; }
     public Item CurrentItem { get; set; }
     public bool Interating { get; private set; }
+    public float LastVerticalValue { get; private set; } = 0f;
+    public float LastHorizontalValue { get; private set; } = 0f;
 
     PlayerInput playerInput;
     Rigidbody2D rb;
     Animator animator;
-    float lastVerticalValue = 0f;
-    float lastHorizontalValue = 0f;
 
 
     private void Awake()
@@ -42,10 +42,10 @@ public class Player : MonoBehaviour
     {
         Vector2 moveValue = MoveAction.ReadValue<Vector2>();
         rb.AddForce(moveValue * movementSpeed, ForceMode2D.Impulse);
-        lastHorizontalValue = moveValue.x;
-        lastVerticalValue = moveValue.y;
-        animator.SetFloat("Vertical", -lastVerticalValue);
-        animator.SetFloat("Horizontal", lastHorizontalValue);
+        LastHorizontalValue = moveValue.x;
+        LastVerticalValue = moveValue.y;
+        animator.SetFloat("Vertical", -LastVerticalValue);
+        animator.SetFloat("Horizontal", LastHorizontalValue);
 
         if (moveValue.magnitude < 0.01f)
         {
@@ -54,6 +54,11 @@ public class Player : MonoBehaviour
         else
         {
             animator.SetFloat("Speed", 0.75f);
+
+            if (CurrentItem)
+            {
+                CurrentItem.transform.localPosition = new Vector3((LastVerticalValue <= -0.1f? 0.5f : -0.1f) + LastHorizontalValue * 1.25f, LastVerticalValue + 0.5f, 0f);
+            }
         }
     }
 

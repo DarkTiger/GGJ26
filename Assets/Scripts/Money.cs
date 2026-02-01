@@ -6,6 +6,7 @@ public class Money : Interactable
 {
     public static Money Instance;
     [SerializeField] GameObject spriteGameObject;
+    [SerializeField] AudioClip cash;
 
     private int amount = 0;
 
@@ -19,6 +20,10 @@ public class Money : Interactable
         base.OnInteract(player);
         GameManager.Instance.IncreaseMoney(amount);
         spriteGameObject.SetActive(false);
+        if (amount > 0)
+        {
+            AudioSource.PlayClipAtPoint(cash, Camera.main.transform.position, 0.1f);
+        }
         amount = 0;
     }
 
