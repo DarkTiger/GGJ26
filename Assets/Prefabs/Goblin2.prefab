@@ -232,7 +232,7 @@ MonoBehaviour:
   coin: {fileID: 8300000, guid: 017fcc01108bee74397f28f5cafca190, type: 3}
   Exit: 0
   MaskAccepted: 0
-  WaitMaskTimer: 15
+  WaitMaskTimer: 30
 --- !u!61 &569619892924701573
 BoxCollider2D:
   m_ObjectHideFlags: 0
