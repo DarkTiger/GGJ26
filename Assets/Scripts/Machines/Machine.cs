@@ -44,7 +44,7 @@ public class Machine : Interactable
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT") && itemInside == null && player.CandidateInteractable == this)
         {
-            Ingredient inputIngredient = player.CurrentItem.gameObject.GetComponent<Ingredient>();
+            Ingredient inputIngredient = player.CurrentItem?.gameObject.GetComponent<Ingredient>();
 
             if (inputIngredient == null)
                 return;
