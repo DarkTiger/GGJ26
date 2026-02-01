@@ -42,7 +42,10 @@ public class Bed : Interactable
     {
         base.OnExit(player);
         comicShow = false;
-        comicCost.SetActive(false);
+        if (comicCost)
+        {
+            comicCost.SetActive(false);
+        }
     }
 
 
