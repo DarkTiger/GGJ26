@@ -3,6 +3,7 @@ using UnityEngine;
 public class Seed : Item
 {
     public Plant Plant { get; private set; } 
+    public CampSlot CampSlot { get; set; }
 
     SeedData seedData;
     Vector3 slotPos;
@@ -33,6 +34,7 @@ public class Seed : Item
     {
         Plant = Instantiate(seedData.PlantPrefab, slotPos, Quaternion.identity).GetComponent<Plant>();
         Plant.IsWet = isWet;
+        CampSlot.CurrentPlant = Plant;
         Destroy(gameObject);
     }
 

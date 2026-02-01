@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CampSlot : Interactable
@@ -7,6 +8,7 @@ public class CampSlot : Interactable
     
     public bool IsWet { get; private set; }
     public Seed CurrentSeed { get; private set; }    
+    public Plant CurrentPlant { get; set; }
 
     SpriteRenderer spriteRenderer;
 
@@ -37,6 +39,10 @@ public class CampSlot : Interactable
                 if ((player.CurrentItem as Bucket).IsFull)
                 {
                     SetWet(true);
+                    if (CurrentPlant)
+                    {
+                        CurrentPlant.IsWet = true;
+                    }
                     player.CurrentItem.Use(player);
                 }
             }
@@ -46,6 +52,7 @@ public class CampSlot : Interactable
 
                 CurrentSeed = player.CurrentItem as Seed;
                 CurrentSeed.SetWet(IsWet);
+                CurrentSeed.CampSlot = this;
                 (player.CurrentItem as Seed).SetSlotPos(transform.position);
                 player.CurrentItem.Use(player);               
             }
