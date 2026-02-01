@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 4724ddc658ec937488d5bbf66f1e18e5
+guid: 0a567c3d55a7f4d488fd212367c90180
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3564591858580322509
-    second: Pozzo_0
+      213: 1935953980210962627
+    second: protagonista F front e back_0
+  - first:
+      213: 249317225602474017
+    second: protagonista F front e back_1
+  - first:
+      213: -6288415477472845949
+    second: protagonista F front e back_2
+  - first:
+      213: -6960897587008277463
+    second: protagonista F front e back_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 85
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pozzo_0
+      name: protagonista F front e back_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 6
-        width: 507
-        height: 505
+        x: 90
+        y: 34
+        width: 71
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc8fdebc869f77130800000000000000
-      internalID: 3564591858580322509
+      spriteID: 3c06afb43e3edda10800000000000000
+      internalID: 1935953980210962627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonista F front e back_1
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 35
+        width: 68
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 120eb6c12b0c57300800000000000000
+      internalID: 249317225602474017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonista F front e back_2
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 38
+        width: 68
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f9921d07f0bb8a0800000000000000
+      internalID: -6288415477472845949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonista F front e back_3
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 38
+        width: 71
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9247f78668ce56f90800000000000000
+      internalID: -6960897587008277463
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pozzo_0: 3564591858580322509
+      protagonista F front e back_0: 1935953980210962627
+      protagonista F front e back_1: 249317225602474017
+      protagonista F front e back_2: -6288415477472845949
+      protagonista F front e back_3: -6960897587008277463
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

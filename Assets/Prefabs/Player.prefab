@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 3697976828696931230}
   - component: {fileID: 5754488868846037156}
   - component: {fileID: 450112520571552369}
+  - component: {fileID: 5881488485903692574}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4560422290923457977
 Transform:
   m_ObjectHideFlags: 0
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 2d377a6957c04af499403dd88a48cba9, type: 3}
+  m_Sprite: {fileID: -3196346199564393185, guid: b0a2a87130713a440a3c9e3de1b027e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,8 +128,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.5}
-  m_Size: {x: 1, y: 0.5}
+  m_Offset: {x: 0, y: -0.75}
+  m_Size: {x: 1.25, y: 1.75}
   m_Direction: 0
 --- !u!58 &450112520571552369
 CircleCollider2D:
@@ -164,8 +165,30 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.5}
-  m_Radius: 0.7
+  m_Offset: {x: 0, y: -0.78}
+  m_Radius: 0.9
+--- !u!95 &5881488485903692574
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2614470750186449025}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d24a1a9752ce5f45818770cb792037d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5734883588204752835
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,13 +307,14 @@ GameObject:
   - component: {fileID: 7411054782320856096}
   - component: {fileID: 7420604944439335630}
   - component: {fileID: 3458035091978903947}
+  - component: {fileID: 2613257254476043099}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7265339824088797216
 Transform:
   m_ObjectHideFlags: 0
@@ -355,7 +379,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 7405d93b16ddc7044a99f7887271a550, type: 3}
+  m_Sprite: {fileID: 1935953980210962627, guid: 0a567c3d55a7f4d488fd212367c90180, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -399,8 +423,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.5}
-  m_Size: {x: 1, y: 0.5}
+  m_Offset: {x: 0, y: -0.75}
+  m_Size: {x: 1.25, y: 1.75}
   m_Direction: 0
 --- !u!58 &3458035091978903947
 CircleCollider2D:
@@ -436,5 +460,27 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.5}
-  m_Radius: 0.7
+  m_Offset: {x: 0, y: -0.78}
+  m_Radius: 0.9
+--- !u!95 &2613257254476043099
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724477335570934382}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: acb5fb35252825b4f81b18d7e7330f59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
