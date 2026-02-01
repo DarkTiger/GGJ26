@@ -15,7 +15,7 @@ MonoBehaviour:
   startStatus: 0
   workedColor: {r: 0.63569, g: 0.34528297, b: 1, a: 1}
   baseSprite: {fileID: 21300000, guid: 8512b341e525c8f46ac8ad2a650ad612, type: 3}
-  cookedSprite: {fileID: 0}
+  cookedSprite: {fileID: -1353150823315858297, guid: 81c5fa7bd6915b743a34b0471d6e42d6, type: 3}
   powderSprite: {fileID: -5024064243805635997, guid: 10001013f9ad09a468af43ce3de64e44, type: 3}
   cauldronSprite: {fileID: 3537325635727943432, guid: a5803ba9aba62d04690e5a3278ce7b97, type: 3}
   mortarSprite: {fileID: -8484351312180872467, guid: a9a0a9bcc1bd64b4d85c704d2e980f6a, type: 3}
