@@ -29,6 +29,7 @@ public class Goblin : Interactable
     public float WaitMaskTimer = 0;
     public float WaitMaskFirstTimer;
     float timer = 0;
+    bool firstWait = true;
 
     private int currentWaypointIndex = 0;
     private int currentWaypointExitIndex = 0;
@@ -42,6 +43,14 @@ public class Goblin : Interactable
     private void Start()
     {
         ChoseMask();
+        if (GameManager.Instance.GetSpawnCount() == 1)
+        {
+            firstWait = true;
+        }
+        else
+        {
+            firstWait = false;
+        }
     }
 
     public override void OnInteract(Player player)
@@ -158,7 +167,7 @@ public class Goblin : Interactable
             if (!MaskAccepted)
             {
                 timer += Time.deltaTime;
-                if (GameManager.Instance.GetSpawnCount() == 1)
+                if (firstWait)
                 {
                     if (timer > WaitMaskFirstTimer)
                     {

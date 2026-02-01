@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Item : Interactable
 {
+    [SerializeField] AudioClip useClip;
+
+    public AudioClip UseClip => useClip;
     public Player GrabbedBy { get; private set; }
 
 
@@ -26,7 +29,10 @@ public class Item : Interactable
 
     public virtual void Use(Player player)
     {
-
+        if (useClip)
+        {
+            AudioSource.PlayClipAtPoint(useClip, Camera.main.transform.position, 0.5f);
+        }
     }
 
     public void Grab(Player player)
