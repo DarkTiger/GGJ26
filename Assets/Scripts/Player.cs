@@ -54,6 +54,11 @@ public class Player : MonoBehaviour
         else
         {
             animator.SetFloat("Speed", 0.75f);
+
+            if (CurrentItem)
+            {
+                CurrentItem.transform.localPosition = new Vector3((lastVerticalValue <= -0.1f? 0.5f : -0.1f) + lastHorizontalValue * 1.25f, lastVerticalValue + 0.5f, 0f);
+            }
         }
     }
 
