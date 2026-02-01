@@ -47,6 +47,7 @@ MonoBehaviour:
   money: 100
   happyGoblin: 0
   angryGoblin: 0
+  gameOverCount: 10
   IsGameOver: 0
   availableRecipe: []
   recipeList: {fileID: 11400000, guid: 81c571f318b31274883a812d5aee4baa, type: 2}

@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public int money,happyGoblin,angryGoblin;
+    public int gameOverCount;
 
     public bool IsGameOver = false;
 
@@ -27,6 +30,14 @@ public class GameManager : MonoBehaviour
         //so_ingredient = new List<SO_Ingredient>();
         //SetAvaiableRecipe(); //Test
         TopBarUI.Instance.UpdateTopBar();
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current.selectButton.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public int GetMoney()
@@ -61,6 +72,10 @@ public class GameManager : MonoBehaviour
     {
         angryGoblin++;
         TopBarUI.Instance.UpdateTopBar();
+        if (angryGoblin >= gameOverCount)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public int GetAngry()
