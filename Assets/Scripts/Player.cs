@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
             interactable.OnExit(this);
             interactable.InteractedBy = null;
             CandidateInteractable = null;
+            CurrentInteractable = CurrentItem;
         }
     }
 }
