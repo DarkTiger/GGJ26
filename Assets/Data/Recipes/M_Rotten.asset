@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 291b682c0c46e764ab980a4f36d6e7c7, type: 3}
-  m_Name: M_Blu
+  m_Name: M_Rotten
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
-  recipeName: Mirtillo Tossico
-  sprite: {fileID: -672769320273867938, guid: 10a191308040d3142aee549eb32c18be, type: 3}
-  color: {r: 0, g: 0.014984608, b: 1, a: 1}
+  recipeName: Coccinella Decomposta
+  sprite: {fileID: 6263521877169465104, guid: 4f084f85764a68949b662407cad31a7b, type: 3}
+  color: {r: 1, g: 0.1809608, b: 0, a: 1}
   ingredients:
-  - ingredient: {fileID: 11400000, guid: 2a552a12117f0db4db044f09710ebfff, type: 2}
+  - ingredient: {fileID: 11400000, guid: 020a564421ab1d74db823ab7c86e432b, type: 2}
     status: 0
-  - ingredient: {fileID: 11400000, guid: 640180b3c840dba4ab69e1c1f352eb68, type: 2}
-    status: 10
-  value: 10
+  - ingredient: {fileID: 11400000, guid: d9cfbd06ab31c054eb2e3f8d04e883e9, type: 2}
+    status: 20
+  value: 25

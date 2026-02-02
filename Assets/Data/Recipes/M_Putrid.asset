@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 291b682c0c46e764ab980a4f36d6e7c7, type: 3}
-  m_Name: M_Nera
+  m_Name: M_Putrid
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
-  recipeName: Schifopuzza
-  sprite: {fileID: 6263521877169465104, guid: 4f084f85764a68949b662407cad31a7b, type: 3}
-  color: {r: 0.17735851, g: 0.10509188, b: 0.07997865, a: 1}
-  ingredients: []
-  value: 8
+  recipeName: Petalo Putrido
+  sprite: {fileID: -2874043251771990487, guid: 5cd7098fab1d7d44785973ec7f1938e6, type: 3}
+  color: {r: 1, g: 0.966757, b: 0, a: 1}
+  ingredients:
+  - ingredient: {fileID: 11400000, guid: d9cfbd06ab31c054eb2e3f8d04e883e9, type: 2}
+    status: 20
+  value: 15

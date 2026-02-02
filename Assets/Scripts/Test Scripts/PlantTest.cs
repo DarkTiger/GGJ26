@@ -8,7 +8,7 @@ public class PlantTest : MonoBehaviour
     void Start()
     {
         plant = GetComponent<Plant>();
-        plant.IsWet = true;
+        plant.isWet = true;
     }
 
     // Update is called once per frame

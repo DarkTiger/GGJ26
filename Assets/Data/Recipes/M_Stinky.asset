@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 291b682c0c46e764ab980a4f36d6e7c7, type: 3}
-  m_Name: M_Viola
+  m_Name: M_Stinky
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
-  recipeName: Fragranza Tuguriosa
-  sprite: {fileID: -7304162873424720947, guid: 457b027bccf2d5f44bb882a8f7c9298f, type: 3}
-  color: {r: 0.9638543, g: 0, b: 1, a: 1}
+  recipeName: Acquitrino Odoroso
+  sprite: {fileID: 7209981765597108096, guid: d2828c43776c92b438ad1b02b167449a, type: 3}
+  color: {r: 0, g: 1, b: 0.12903786, a: 1}
   ingredients:
-  - ingredient: {fileID: 11400000, guid: 020a564421ab1d74db823ab7c86e432b, type: 2}
+  - ingredient: {fileID: 11400000, guid: 640180b3c840dba4ab69e1c1f352eb68, type: 2}
     status: 0
-  - ingredient: {fileID: 11400000, guid: 2a552a12117f0db4db044f09710ebfff, type: 2}
+  - ingredient: {fileID: 11400000, guid: 3db530d228ad10e46b3394306b31b2fe, type: 2}
     status: 10
-  value: 8
+  value: 25

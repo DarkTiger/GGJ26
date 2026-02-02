@@ -9,10 +9,10 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject goblinPrefab;
     public Transform finalCheckpoint;
 
+    [SerializeField] float startDelay = 10;
     [SerializeField] float timerSpawn;
 
     private float timer;
-
 
     [ContextMenu("Spawn")]
     public void Spawn()
@@ -39,6 +39,9 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        if(Time.timeSinceLevelLoad < startDelay)
+            return;
+
         timer += Time.deltaTime;
         if (timer > timerSpawn)
         {

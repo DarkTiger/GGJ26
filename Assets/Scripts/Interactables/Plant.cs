@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Plant : Item
 {
-    public bool IsWet { get; set; }
+    public bool isWet;
     public int GrowLevel { get; private set; } = 0;
     public GameObject IngredientPrefab;
     public SO_Ingredient finalIngredient;
@@ -12,7 +12,7 @@ public class Plant : Item
 
     private void Update()
     {
-        if (!IsWet || GrowLevel >= 2) return;
+        if (!isWet || GrowLevel >= 2) return;
 
         growingTime += Time.deltaTime;
 

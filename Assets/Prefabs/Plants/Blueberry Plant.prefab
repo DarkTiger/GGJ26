@@ -370,4 +370,4 @@ MonoBehaviour:
   useClip: {fileID: 0}
   IngredientPrefab: {fileID: 8706635220550697207, guid: 965da423503ec5b46b70c1e56347975c, type: 3}
   finalIngredient: {fileID: 11400000, guid: 2a552a12117f0db4db044f09710ebfff, type: 2}
-  GROW_TIME: 20
+  GROW_TIME: 15

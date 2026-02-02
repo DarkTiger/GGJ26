@@ -33,7 +33,7 @@ public class Seed : Item
     void FarmPlant()
     {
         Plant = Instantiate(seedData.PlantPrefab, slotPos, Quaternion.identity).GetComponent<Plant>();
-        Plant.IsWet = isWet;
+        Plant.isWet = isWet;
         CampSlot.CurrentPlant = Plant;
         Destroy(gameObject);
     }

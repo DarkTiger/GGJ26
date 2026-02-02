@@ -297,7 +297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   grabClip: {fileID: 8300000, guid: ea5f695041ed35147a560b0601bea635, type: 3}
   releaseClip: {fileID: 8300000, guid: 7676355e94b28494ba82bd4c70f7422e, type: 3}
-  movementSpeed: 2
+  movementSpeed: 2.6
+  enableControls: 1
 --- !u!82 &2924252474966878752
 AudioSource:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class CampSlot : Interactable
         if (CurrentSeed)
         {
             CurrentSeed.SetWet(isWet);
-            CurrentSeed.Plant.IsWet = isWet;
+            CurrentSeed.Plant.isWet = isWet;
         }
     }
 
@@ -42,7 +42,7 @@ public class CampSlot : Interactable
                     SetWet(true);
                     if (CurrentPlant)
                     {
-                        CurrentPlant.IsWet = true;
+                        CurrentPlant.isWet = true;
                     }
                     player.CurrentItem.Use(player);
                 }
