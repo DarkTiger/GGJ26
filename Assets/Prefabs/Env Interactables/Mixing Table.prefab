@@ -82,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -682514725
-  m_SortingLayer: 6
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 284360937261391339, guid: 1cb6b8803193f39479128927b8f88c02, type: 3}
@@ -105,7 +105,7 @@ Animator:
   m_GameObject: {fileID: 7900559340037825737}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e7319481118926e4ab94d2f828c796e2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4e02cb77353a6f149843c13590c1b633, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -147,11 +147,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.22, y: -0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +161,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 7.35, y: 9.41}
   m_EdgeRadius: 0
 --- !u!114 &2436551515883087434
 MonoBehaviour:
@@ -175,14 +175,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361b830261d157a4eb69caeb5fa71192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MixingTable
-  workTime: 2
+  workTime: 1
   itemInside: {fileID: 0}
-  popUp: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  startTime: 0
   ingredients: []
   maskPrefab: {fileID: 8706635220550697207, guid: 44af16ad88fd79b469a58c22a09fa295, type: 3}
-  wrongRecipe: {fileID: 11400000, guid: 471325528c7584744a3e5345eddc0056, type: 2}
   workingSprite: {fileID: 4541677147639310502, guid: 347c3366cfe7bdb439d1e868c8ad6055, type: 3}
 --- !u!1001 &6037262075095395003
 PrefabInstance:

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Cauldron : Machine
 {
-    public override IngredientStatus finalState => IngredientStatus.COOKED;
+    protected override IngredientStatus finalState => IngredientStatus.COOKED;
 
     protected override void UseWorkingSprite()
     {
@@ -13,12 +13,5 @@ public class Cauldron : Machine
             return;
 
         spriteRenderer.sprite = targetSprite;
-    }
-
-    public override void FinishWorking()
-    {
-        popUp.Show();
-        Ingredient ing = itemInside.GetComponent<Ingredient>();
-        popUp.UpdateFG(ing.data.GetSprite(IngredientStatus.COOKED));
     }
 }

@@ -5,122 +5,97 @@ public class MixingTable : Machine
 {
     [SerializeField] List<ProcessedIngredient> ingredients;
     [SerializeField] GameObject maskPrefab;
-    [SerializeField] Recipe wrongRecipe;
     [SerializeField] Sprite workingSprite;
 
-    bool recipeReady;
-
-    public override void OnInteract(Player player)
+    protected override void ReadyBehaviour()
     {
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("WAIT"))
-            return;
+        StartCoroutine(InteractionDelay(workTime));
 
-        if(player.CurrentItem == null && recipeReady)
+        AddIngredient();
+        UseWorkingSprite();
+        state = MachineState.WORKING;
+    }
+
+    protected override void WorkingBehaviour()
+    {
+        AddIngredient();
+        StartCoroutine(InteractionDelay(workTime));
+    }
+
+    protected override void FinishedBehaviour()
+    {
+        if (lastInteractionPlayer.CurrentItem == null)
         {
-            recipeReady = false;
-
             ingredients.Clear();
             popUp.Hide();
-            GiveItem(player);
-        }
-
-        if (ingredients.Count == 0)
-        {
-            if (player.CurrentItem != null && player.CurrentItem is Ingredient)
-            {
-                print("adding ingredient:" + (player.CurrentItem as Ingredient).data);
-
-                ProcessedIngredient newProIng;
-                newProIng.ingredient = (player.CurrentItem as Ingredient).data;
-                newProIng.status = (player.CurrentItem as Ingredient).status;
-                ingredients.Add(newProIng);
-                IngestItem(player);
-            }
-            else
-            {
-                print("not carrying ingredient!");
-                // avvisare player?
-            }
-        }
-        else
-        {
-            if (player.CurrentItem != null && player.CurrentItem is Ingredient)
-            {
-                print("combining ingredients");
-                animator.Play("WORK");
-
-                ProcessedIngredient newProIng;
-                newProIng.ingredient = (player.CurrentItem as Ingredient).data;
-                newProIng.status = (player.CurrentItem as Ingredient).status;
-                ingredients.Add(newProIng);
-
-                Recipe recipe = Recipe.GetRecipeFromIngredients(ingredients, out bool partial);
-                if(recipe == null)
-                {
-                    foreach (Transform child in transform)
-                    {
-                        if (child.gameObject.GetComponent<PopUp>() || child.gameObject.GetComponent<Mask>())
-                            continue;
-                        Destroy(child.gameObject);
-                    }
-                    ingredients.Clear();
-                    return;
-                }
-
-                if (!partial)
-                {
-                    recipeReady = true;
-
-                    foreach(Transform child in transform)
-                    {
-                        if (child.gameObject.GetComponent<PopUp>())
-                            continue;
-                        Destroy(child.gameObject);
-                    }
-
-                    Destroy(player.CurrentItem.gameObject);
-                    player.CurrentItem = null;
-                    player.CurrentInteractable = null;
-
-                    GameObject maskObj = Instantiate(maskPrefab);
-                    itemInside = maskObj;
-                    itemInside.GetComponent<Collider2D>().enabled = false;
-
-                    maskObj.transform.parent = transform;
-                    maskObj.transform.position = transform.position;
-                    maskObj.gameObject.SetActive(false);
-                    maskObj.GetComponent<Mask>().recipe = recipe? recipe: wrongRecipe;
-                    maskObj.GetComponent<Mask>().UpdateSprite();
-                }
-            }
-            else
-            {
-                //print("getting back item");
-                //ingredients.Clear();
-                //popUp.Hide();
-                //GiveItem(player);
-            }
+            GiveItemToPlayer();
+            state = MachineState.READY;
         }
     }
 
-    public override void FinishWorking()
+    public override void AfterInteractionDelay()
     {
-        Mask mask = itemInside.GetComponent<Mask>();
-
-        if(mask == null)
+        switch (state)
         {
-            animator.Play("WAIT");
-            popUp.Hide();
+            case MachineState.LOCKED:
+                break;
+            case MachineState.READY:
+                popUp.Hide();
+                animator.SetTrigger("End");
+                spriteRenderer.sprite = initialSprite;
+                break;
+            case MachineState.WORKING:
+                animator.SetTrigger("End");
+
+                Recipe recipe = Recipe.GetRecipeFromIngredients(ingredients, out bool partial);
+                if (recipe == null)
+                {
+                    ingredients.Clear();
+                    spriteRenderer.sprite = initialSprite;
+                    state = MachineState.READY;
+                }
+                else if (!partial)
+                {
+                    CreateMask(recipe);
+                    popUp.UpdateFG(recipe.sprite);
+                    popUp.Show();
+                    state = MachineState.FINISHED;
+                }
+                break;
+            case MachineState.FINISHED:
+                animator.SetTrigger("End");
+                break;
+        }
+    }
+
+    void AddIngredient()
+    {
+        Ingredient inputIngredient = lastInteractionPlayer.CurrentItem?.gameObject.GetComponent<Ingredient>();
+
+        if (inputIngredient == null)
             return;
-        }
 
-        popUp.Show();
-        popUp.UpdateFG(mask.recipe.sprite);
-        
-        if(ingredients.Count == 0)
-        {
-            spriteRenderer.sprite = initialSprite;
-        }
+        animator.SetTrigger("Start");
+
+        ProcessedIngredient newProIng;
+        newProIng.ingredient = inputIngredient.data;
+        newProIng.status = inputIngredient.status;
+        ingredients.Add(newProIng);
+        lastInteractionPlayer.CurrentItem.Release();
+        Destroy(inputIngredient.gameObject);
+    }
+
+    void CreateMask(Recipe recipe)
+    {
+        GameObject maskObj = Instantiate(maskPrefab);
+        itemInside = maskObj;
+        itemInside.GetComponent<Collider2D>().enabled = false;
+
+        maskObj.transform.parent = transform;
+        maskObj.transform.position = transform.position;
+        maskObj.gameObject.SetActive(false);
+        maskObj.GetComponent<Mask>().recipe = recipe;
+        maskObj.GetComponent<Mask>().UpdateSprite();
     }
 
     protected override void UseWorkingSprite()
