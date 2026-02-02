@@ -1,6 +1,5 @@
-using UnityEditor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+using UnityEngine.InputSystem;
 
 public class Box : Interactable
 {
@@ -11,9 +10,14 @@ public class Box : Interactable
 
     public bool IsOpen = false;
     Transform playerTransform;
+    Player instigatorPlayer;
+
     public override void OnInteract(Player player)
     {
+        instigatorPlayer = player;
         playerTransform = player.gameObject.transform;
+        player.enableControls = false;
+        player.Interact2Action.started += CloseMenu;
         base.OnInteract(player);
         if (!IsOpen)
         {
@@ -27,17 +31,28 @@ public class Box : Interactable
     {
         if (IsOpen)
         {
-            pieMenuGameobject.SetActive(false);
-            IsOpen = false;
-            pieMenu.RemovePlayer();
+            CloseMenu(new InputAction.CallbackContext());
         }
+        else
+        {
+            OnInteract(player);
+        }
+    }
+
+    void CloseMenu(InputAction.CallbackContext ctx)
+    {
+        pieMenuGameobject.SetActive(false);
+        IsOpen = false;
+        pieMenu.RemovePlayer();
+        instigatorPlayer.enableControls = true;
+        instigatorPlayer.Interact2Action.performed -= CloseMenu;
     }
 
     private void Update()
     {
         if (IsOpen)
         {
-            if(Vector2.Distance(transform.position, playerTransform.position) > 5f)
+            if (Vector2.Distance(transform.position, playerTransform.position) > 5f)
             {
                 AudioSource.PlayClipAtPoint(boxClip, Camera.main.transform.position, 0.5f);
                 pieMenuGameobject.SetActive(false);
@@ -45,5 +60,11 @@ public class Box : Interactable
                 pieMenu.RemovePlayer();
             }
         }
+    }
+
+    void OnDisable()
+    {
+        if (instigatorPlayer)
+            instigatorPlayer.Interact2Action.performed -= CloseMenu;
     }
 }

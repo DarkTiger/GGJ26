@@ -12,9 +12,8 @@ public class PieMenu : MonoBehaviour
 
     void Update()
     {
-        Vector2 stickR = player.LookAction.ReadValue<Vector2>();
+        Vector2 stickR = player.MoveAction.ReadValue<Vector2>();
         float angle = Mathf.Atan2(-stickR.y, -stickR.x) * Mathf.Rad2Deg;
-
         if (stickR.x > threshold || stickR.y > threshold || stickR.x < -threshold || stickR.y < -threshold)
         {
             //item 1
@@ -107,7 +106,7 @@ public class PieMenu : MonoBehaviour
 
     public void GiveItem(ItemMenu itemMenu)
     {
-        if (player.Interact2Action.WasPressedThisFrame() && itemMenu.SeedData.Cost <= GameManager.Instance.GetMoney())
+        if (player.InteractAction.WasPressedThisFrame() && itemMenu.SeedData.Cost <= GameManager.Instance.GetMoney())
         {
             AudioSource.PlayClipAtPoint(buySeedClip, Camera.main.transform.position, 0.5f);
             Seed seed = Instantiate(itemMenu.SeedData.SeedPrefab).GetComponent<Seed>();
@@ -119,6 +118,7 @@ public class PieMenu : MonoBehaviour
             seed.transform.localPosition = new Vector3(-0.5f, 0f, 0f);
             interacted = false;
             gameObject.SetActive(false);
+            player.enableControls = true;
         }
     }
 }

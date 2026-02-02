@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip releaseClip;
     [SerializeField] float movementSpeed = 1f;
 
+    public bool enableControls = true;
+
     public InputAction MoveAction { get; private set; }
     public InputAction InteractAction { get; private set; }
     public InputAction Interact2Action { get; private set; }
@@ -20,9 +22,6 @@ public class Player : MonoBehaviour
     public float LastHorizontalValue { get; private set; } = 0f;
 
     AudioSource footstepSource;
-    
-
-
     PlayerInput playerInput;
     Rigidbody2D rb;
     Animator animator;
@@ -47,6 +46,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!enableControls)
+            return;
+
         Vector2 moveValue = MoveAction.ReadValue<Vector2>();
         rb.AddForce(moveValue * movementSpeed, ForceMode2D.Impulse);
         LastHorizontalValue = moveValue.x;
@@ -73,7 +75,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     { 
-        if (InteractAction.WasPressedThisFrame())
+        if (InteractAction.WasPressedThisFrame() && enableControls)
         {
             if (CurrentInteractable)
             {
