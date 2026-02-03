@@ -82,8 +82,8 @@
   <Project Path="Unity.ShaderGraph.Utilities.csproj" />
   <Project Path="Unity.AI.Toolkit.Async.csproj" />
   <Project Path="Unity.VisualScripting.Shared.Editor.csproj" />
-  <Project Path="Unity.2D.Aseprite.Common.csproj" />
   <Project Path="Unity.AI.Toolkit.Compliance.csproj" />
+  <Project Path="Unity.2D.Aseprite.Common.csproj" />
   <Project Path="Unity.2D.Enhancers.Editor.AIBridge.csproj" />
   <Project Path="Unity.AI.Generators.Contexts.csproj" />
   <Project Path="Unity.AI.Generators.Asset.csproj" />
