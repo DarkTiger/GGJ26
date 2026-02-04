@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Goblin : Interactable
 {
@@ -23,6 +22,7 @@ public class Goblin : Interactable
     private bool isHappy = false;
     private bool move = true;
     private Animator animator;
+    public Animator maskAnimator, angryAnimator;
     private Recipe recipeMask;
     private int cost = 10;
 
@@ -34,6 +34,9 @@ public class Goblin : Interactable
     private int currentWaypointIndex = 0;
     private int currentWaypointExitIndex = 0;
 
+    [HideInInspector] private Vector2 velocity;
+    private Vector2 startPos;
+
     private void Awake()
     {
         checkpoint = new List<Transform>();
@@ -42,6 +45,7 @@ public class Goblin : Interactable
     }
     private void Start()
     {
+
         ChoseMask();
         if (GameManager.Instance.GetSpawnCount() == 1)
         {
@@ -97,6 +101,7 @@ public class Goblin : Interactable
 
     private void Update()
     {
+        startPos = transform.position;
         if (move)
         {
             if (!Exit)
@@ -119,7 +124,8 @@ public class Goblin : Interactable
                         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
                         if (Vector2.Distance(transform.position, target.position) < 0.2f)
                         {
-                            animator.SetBool("Move", false);
+                            //animator.SetBool("Move", false);
+                            SetAnimators(new Vector2(0, -1), 0);
                             onBed = true;
                             transform.position = finalCheckpoint.parent.position;
                             boxCollider2D.enabled = true;
@@ -131,7 +137,7 @@ public class Goblin : Interactable
             else
             {
                 boxCollider2D.enabled = false;
-                animator.SetInteger("Direction", 2);
+                //animator.SetInteger("Direction", 2);
                 if (currentWaypointExitIndex < (exitCheckpoints.Count))
                 {
                     Transform target = exitCheckpoints[currentWaypointExitIndex];
@@ -177,7 +183,7 @@ public class Goblin : Interactable
                         onBed = false;
                         timer = 0;
                         angryGameObject.SetActive(true);
-
+                        print("angry");
                         //me ne vado
                     }
                 }
@@ -191,12 +197,52 @@ public class Goblin : Interactable
                         onBed = false;
                         timer = 0;
                         angryGameObject.SetActive(true);
+                        print("angry");
 
                         //me ne vado
                     }
                 }
             }
         }
+    }
+
+    void LateUpdate()
+    {
+        if (onBed)
+            if (MaskAccepted)
+            {
+                SetAnimators(new Vector2(0, -1), 1);
+                return;
+            }
+            else
+            {
+                return;
+            }
+
+        velocity = new Vector2(transform.position.x, transform.position.y) - startPos;
+        if (velocity.magnitude > 0)
+            velocity.Normalize();
+
+        SetAnimators(velocity, 1);
+    }
+
+
+    void SetAnimators(Vector2 _velocity, float _speed)
+    {
+        _velocity.x = Mathf.Round(_velocity.x);
+        _velocity.y = Mathf.Round(_velocity.y);
+
+        animator.SetFloat("Horizontal", _velocity.x);
+        animator.SetFloat("Vertical", _velocity.y);
+        animator.SetFloat("Speed", _speed);
+/* 
+        maskAnimator.SetFloat("Horizontal", _velocity.x);
+        maskAnimator.SetFloat("Vertical", _velocity.y);
+        maskAnimator.SetFloat("Speed", _speed);
+
+        angryAnimator.SetFloat("Horizontal", _velocity.x);
+        angryAnimator.SetFloat("Vertical", _velocity.y);
+        angryAnimator.SetFloat("Speed", _speed); */
     }
     private void ChoseMask()
     {

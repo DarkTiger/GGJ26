@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] List<Transform> enteringCheckpoint;
     [SerializeField] List<Transform> exitCheckpoint;
     [SerializeField] Transform spwan;
-    [SerializeField] GameObject goblinPrefab;
+    [SerializeField] List<GameObject> goblinPrefabList;
     public Transform finalCheckpoint;
 
     [SerializeField] float startDelay = 10;
@@ -21,7 +21,8 @@ public class SpawnManager : MonoBehaviour
         if (bed != null)
         {
             bed.SetBedBusyState();
-            GameObject goblin = Instantiate(goblinPrefab, spwan.position, spwan.rotation);
+            GameObject goblin = Instantiate(goblinPrefabList[Random.Range(0, goblinPrefabList.Count)], spwan.position, spwan.rotation);
+            //GameObject goblin = Instantiate(goblinPrefabList[0], spwan.position, spwan.rotation);
             GameManager.Instance.SetSpawnCount();
             Goblin goblinScript = goblin.GetComponent<Goblin>();
             goblinScript.SetFinalCheckpoint(bed.GetCheckpointBed());
@@ -39,7 +40,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        if(Time.timeSinceLevelLoad < startDelay)
+        if (Time.timeSinceLevelLoad < startDelay)
             return;
 
         timer += Time.deltaTime;

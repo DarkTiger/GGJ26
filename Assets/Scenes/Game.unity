@@ -5332,9 +5332,25 @@ PrefabInstance:
       value: SpawnManager
       objectReference: {fileID: 0}
     - target: {fileID: 8803955649261403525, guid: 93d5b899f64b2db44a9cc4027abf11e8, type: 3}
+      propertyPath: startDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803955649261403525, guid: 93d5b899f64b2db44a9cc4027abf11e8, type: 3}
       propertyPath: timerSpawn
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8803955649261403525, guid: 93d5b899f64b2db44a9cc4027abf11e8, type: 3}
+      propertyPath: goblinPrefabList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803955649261403525, guid: 93d5b899f64b2db44a9cc4027abf11e8, type: 3}
+      propertyPath: 'goblinPrefabList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1064457702849607808, guid: e1e5d68d17bbafd449f9fad5a930fa65, type: 3}
+    - target: {fileID: 8803955649261403525, guid: 93d5b899f64b2db44a9cc4027abf11e8, type: 3}
+      propertyPath: 'goblinPrefabList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1064457702849607808, guid: b0960b25ba55434d7b77c1ed611a32b8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5463,7 +5479,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6818421181295498398, guid: 9951a671be507dd6294fc28dd6e914e6, type: 3}
+  m_Sprite: {fileID: -7813285488009406872, guid: ff7cf64bfdf9d6e08ad54cba6e07efea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
